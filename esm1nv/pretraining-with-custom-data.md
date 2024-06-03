@@ -91,7 +91,7 @@ In this example, the downstream task is subcellular location (classification of 
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-downstream-classification.jpg" alt="Custom Downstream for Subcellular Location Prediction"><figcaption><p>Custom Downstream for Subcellular Location Prediction</p></figcaption></figure>
 
     - the `target` column is `scl_label`. Column name doesn't matter
-    - Download a {% file src="../.gitbook/assets/files/flip_scl/x000.csv" %} Template CSV file {% endfile %}
+    - Download a [template file](../.gitbook/assets/files/flip_scl/x000.csv)
 3. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, make sure `dwnstr_task_validation.enabled = True` 
 4. Go to `examples/protein/esm1nv/conf/base_config.yaml`, under `dwnstr_task_validation`, modify the following columns:
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-downstream-yaml-classification.jpg" alt="Custom Downstream YAML Configuration for Subcellular Location Prediction"><figcaption><p>Custom Downstream YAML Configuration for Subcellular Location Prediction</p></figcaption></figure>
@@ -117,12 +117,14 @@ In this example, the downstream task is predicting the melting temperature of th
             |-- x000.csv
     ```
 2. Each CSV file needs to contain `id`, `sequence`, and `target` column. For example:
+
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-downstream-regression.jpg" alt="Custom Downstream for Melting Temperature Prediction"><figcaption><p>Custom Downstream for Melting Temperature Prediction</p></figcaption></figure>
 
     - the `target` column is `target`. Column name doesn't matter
-    - Download a {% file src="../.gitbook/assets/files/flip_meltome/x000.csv" %} Template CSV file {% endfile %}
+    - Download a [template file](../.gitbook/assets/files/flip_meltome/x000.csv)
 3. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, make sure `dwnstr_task_validation.enabled = True`
 4. Go to `examples/protein/esm1nv/conf/base_config.yaml`, under `dwnstr_task_validation`, modify the following columns:
+
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-downstream-yaml-regression.jpg" alt="Custom Downstream YAML Configuration for Melting Temperature Prediction"><figcaption><p>Custom Downstream YAML Configuration for Melting Temperature Prediction</p></figcaption></figure>
 
     - `task_class`: set to `SingleValuePredictionCallBack`
