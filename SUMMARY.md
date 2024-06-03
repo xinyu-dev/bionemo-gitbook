@@ -21,3 +21,5 @@
   * [Page 1](esm2nv/nim/page-1.md)
 * [Recipes](esm2nv/recipes/README.md)
   * [1. Pretrain](esm2nv/recipes/page-2.md)
+  * [2. Finetune](esm2nv/recipes/2.-finetune.md)
+  * [3. Inference](esm2nv/recipes/3.-inference.md)
