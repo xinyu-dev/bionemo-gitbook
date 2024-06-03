@@ -9,30 +9,25 @@
 * [Launch BioNeMo Framework on NGC](setup/ngc.md)
 
 ## Models
-* [ESM1nv](models/esm1nv/README.md)
-  * [Recipes](models/esm1nv/recipes/README.md)
-    * [Pretraining with custom data](models/esm1nv/recipes/pretraining-with-custom-data.md)
-    * [Pretraining with OAS](models/esm1nv/recipes/pretraining-with-oas.md)
 
-
-## ESM2nv
-
-* [1. Pretrain](esm2nv/1.-pretrain.md)
-* [2. Finetune](esm2nv/2.-finetune.md)
-* [3. Inference](esm2nv/3.-inference.md)
-* [NIM](esm2nv/nim/README.md)
-  * [1. Inference](esm2nv/nim/1.-inference.md)
-* [Recipes](esm2nv/recipes/README.md)
-  * [Zero-Shot Mutant Design](esm2nv/recipes/zero-shot-mutant-design.md)
-
-## MegaMolBART
-
-* [1. Inference](megamolbart/1.-inference.md)
-
-
-## MolMIM
-* [1. Inference](molmim/1.-inference.md)
+* [ESM1nv](esm1nv/README.md)
+  * [Recipes](esm1nv/recipes/README.md)
+    * [Pretraining with custom data](esm1nv/recipes/pretraining-with-custom-data.md)
+    * [Pretraining with OAS](esm1nv/recipes/pretraining-with-oas.md)
+* [ESM2nv](esm2nv/README.md)
+  * [1. Pretrain](esm2nv/1.-pretrain.md)
+  * [2. Finetune](esm2nv/2.-finetune.md)
+  * [3. Inference](esm2nv/3.-inference.md)
+  * [NIM](esm2nv/nim/README.md)
+    * [1. Inference](esm2nv/nim/1.-inference.md)
+  * [Recipes](esm2nv/recipes/README.md)
+    * [Zero-Shot Mutant Design](esm2nv/recipes/zero-shot-mutant-design.md)
+* [MegaMolBART](megamolbart/README.md)
+  * [1. Inference](megamolbart/1.-inference.md)
+* [MolMIM](molmim/README.md)
+  * [1. Inference](molmim/1.-inference.md)
 
 ## Other Adaptations
-
-* [1. Inference](other-adaptations/1.-inference.md)
+* [Other Adaptations](otherss/README.md)
+  * [Singularity](otherss/singularity/README.md)
+    * [Run BioNeMo as Singularity](otherss/singularity/run_singularity.md)
