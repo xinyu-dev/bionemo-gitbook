@@ -20,4 +20,4 @@
 * [NIM](esm2nv/nim/README.md)
   * [Page 1](esm2nv/nim/page-1.md)
 * [Recipes](esm2nv/recipes/README.md)
-  * [Page 2](esm2nv/recipes/page-2.md)
+  * [1. Pretrain](esm2nv/recipes/page-2.md)
