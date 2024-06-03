@@ -4,9 +4,10 @@
 
 ## Setup
 
-* [Configure NGC API Key](setup/configure-ngc-api-key.md)
-* [Launch BioNeMo Framework on EC2](setup/ec2.md)
-* [Launch BioNeMo Framework on NGC](setup/ngc.md)
+* [1. Configure NGC API Key](setup/configure-ngc-api-key.md)
+  * [2. Choose platform](setup/platform/README.md)
+    * [EC2](setup/platform/ec2.md)
+    * [NGC](setup/platform/ngc.md)
 
 ## Models
 
