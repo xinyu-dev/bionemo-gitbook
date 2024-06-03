@@ -1,20 +1,14 @@
 # Pretraining ESM1nv with OAS
 
 ## Prerequisites
-
-{: .note }
-{% include template/prerequisite_setup.md %}. 
-
-{: .note }
-We will use the paired sequence from OAS dataset (~ 2 M) to train a ESM1nv model on VH. Similar steps can be applied to VL. 
-
+1. Set up BioNeMo and have Jupyter Lab instance running.  
 
 ## Steps
 
 ### Step 1. Prepare download script
 1. Go to [OAS](https://opig.stats.ox.ac.uk/webapps/oas/oas_paired/), do not put in any search attributes, just click on Search button. 
 2. Download the shell script. 
-![oas-download]({{ "/assets/images/oas_download.jpg" | prepend: site.baseurl }})
+	<figure><img src="../.gitbook/assets/images/oas_download.jpg.jpg" alt="ESM1nv Pretrain Input"><figcaption><p>OAS Download</p></figcaption></figure>
 3. Rename it to `oas_paired_subset_download.sh`. Upload to `/workspace/bionemo/bionemo/data/preprocess/protein` folder in the container
 
 ### Step 2. Prepare preprocessing script
@@ -58,7 +52,7 @@ python examples/protein/esm1nv/pretrain_oas.py
 The data will be downloaded and split into train/val/test in `/workspace/bionemo/data/OASpaired/processed/heavy` folder.
 
 The clean file looks like this
-![oas-clean]({{ "/assets/images/oas_vh_clean.png" | prepend: site.baseurl }})
+<figure><img src="../.gitbook/assets/images/oas_vh_clean.png" alt="OAS Clean"><figcaption><p>OAS Clean</p></figcaption></figure>
 
 
 ### Step 6. Run training
@@ -86,4 +80,4 @@ The clean file looks like this
 	python examples/protein/esm1nv/pretrain_oas.py
 	```
 	When asked about Weights and Biases, select option 2 to use your existing WandB account, then enter your WandB API key. If you prefer not to use WandB, select option 3, or set `create_wandb_logger: False` in the YAML file.
-	3. The results will be saved in `/workspace/bionemo/results` folder.
+3. The results will be saved in `/workspace/bionemo/results` folder.
