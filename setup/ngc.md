@@ -43,8 +43,7 @@ A valid ACE is required to run compute on NGC. Please contact NVIDIA team for NG
     * `--label`: Change to your job label. This allows quick filter on NGC dashboard
     * `--commandline`: command to run inside the container. In this case, we start JupyterLab and keep it running with `sleep infinity`
 2. Go to [NGC dashboard](https://bc.ngc.nvidia.com/jobs). Click into your job.
-  <figure><img src="../../.gitbook/assets/formatting.png" alt=""><figcaption><p>bold, italics context menu with text highlighted</p></figcaption></figure>
-   !\[ngc-dashboard]\([https://github.com/xinyu-dev/bionemo-demo/blob/main/assets/images/ngc-dashboard.jpg](https://github.com/xinyu-dev/bionemo-demo/blob/main/assets/images/ngc-dashboard.jpg))
+  <figure><img src="../.gitbook/assets/images/ngc-dashboard.jpg" alt=""><figcaption><p>NGC Dashboard</p></figcaption></figure>
 3. Wait until the status shows `Running` for 3 minutes. Then click on the link to access JupyterLab. !\[ngc-job]\(\{{ "/assets/images/ngc-job.jpg" | prepend: site.baseurl \}})
 4. In the terminal, run the `ngc config set` again to set the NGC credentials inside the container. If NGC is not installed, go to [this page](https://org.ngc.nvidia.com/setup/installers/cli) to install it.
 5. To download the pretrained model weights, open a terminal in JupyterLab, and run
