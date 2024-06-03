@@ -10,7 +10,7 @@
 
 2. Download the shell script. 
 
-	<figure><img src="../../.gitbook/assets/images/oas_download.jpg" alt="OAS Download"><figcaption><p>OAS Download</p></figcaption></figure>
+	<figure><img src="../../models/.gitbook/assets/images/oas_download.jpg" alt="OAS Download"><figcaption><p>OAS Download</p></figcaption></figure>
 	
 3. Rename it to `oas_paired_subset_download.sh`. Upload to `/workspace/bionemo/bionemo/data/preprocess/protein` folder in the container
 
@@ -61,7 +61,7 @@ The data will be downloaded and split into train/val/test in `/workspace/bionemo
 
 The clean file looks like this: 
 
-<figure><img src="../../.gitbook/assets/images/oas_vh_clean.png" alt="OAS Clean"><figcaption><p>OAS Clean</p></figcaption></figure>
+<figure><img src="../../models/.gitbook/assets/images/oas_vh_clean.png" alt="OAS Clean"><figcaption><p>OAS Clean</p></figcaption></figure>
 
 
 ### 6. Run training
