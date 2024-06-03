@@ -2,6 +2,7 @@
 
 ## Prerequisites
 
+Configure NGC API key: 
 {% content-ref url="https://app.gitbook.com/o/T6jPjGt8ngep3cnfm8WV/snippet/16160" %}
 [Configure NGC API Key](https://app.gitbook.com/o/T6jPjGt8ngep3cnfm8WV/snippet/16160)
 {% endcontent-ref %}
