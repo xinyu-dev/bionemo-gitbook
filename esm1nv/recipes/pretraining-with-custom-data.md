@@ -27,7 +27,8 @@
     - the folder names must be exactly `train`, `val`, and `test`
     - the file names must be exactly `x000.csv`, `x001.csv`, etc. You can have just 1 CSV file or split into multiple CSVs if it's too large. 
     - the CSV file must contain the following column: `record_id`, `sequence`. It's OK to have other columns which won't be used in training.  Download the {% file src="../.gitbook/assets/files/esm1nv_pretrain_input/x000.csv" %} Template CSV file {% endfile %}.
-        <figure><img src="../.gitbook/assets/images/esm1-pretrain-input.jpg" alt="ESM1nv Pretrain Input"><figcaption><p>ESM1nv Pretrain Input</p></figcaption></figure>
+
+    <figure><img src="../.gitbook/assets/images/esm1-pretrain-input.jpg" alt="ESM1nv Pretrain Input"><figcaption><p>ESM1nv Pretrain Input</p></figcaption></figure>
 2. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, update the following: 
 
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-yaml.jpg" alt="Custom YAML Configuration for ESM1nv Pretraining"><figcaption><p>Custom YAML Configuration for ESM1nv Pretraining</p></figcaption></figure>
@@ -45,6 +46,7 @@
 An example is 3-state structure prediction. Specifically, for each amino acid in the sequence, we want to predict whether it's in helix, sheet, or coil.
 
 1. In a directory inside the container, create the following folder structure: 
+
     ```
     |-- downstream
         |-- train
@@ -88,12 +90,14 @@ In this example, the downstream task is subcellular location (classification of 
             |-- x000.csv
     ```
 2. Each CSV file needs to contain `id`, `sequence`, and `target` column. For example: 
+
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-downstream-classification.jpg" alt="Custom Downstream for Subcellular Location Prediction"><figcaption><p>Custom Downstream for Subcellular Location Prediction</p></figcaption></figure>
 
     - the `target` column is `scl_label`. Column name doesn't matter
     - Download a [template file](../.gitbook/assets/files/flip_scl/x000.csv)
 3. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, make sure `dwnstr_task_validation.enabled = True` 
 4. Go to `examples/protein/esm1nv/conf/base_config.yaml`, under `dwnstr_task_validation`, modify the following columns:
+
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-downstream-yaml-classification.jpg" alt="Custom Downstream YAML Configuration for Subcellular Location Prediction"><figcaption><p>Custom Downstream YAML Configuration for Subcellular Location Prediction</p></figcaption></figure>
 
     - `task_class`: set to `SingleValuePredictionCallBack`
@@ -109,6 +113,7 @@ In this example, the downstream task is subcellular location (classification of 
 ### Scenario 3: Downstream task is sequence-level regression
 In this example, the downstream task is predicting the melting temperature of the protein sequences.
 1. In a directory inside the container, create the following folder structure: 
+
     ```
     |-- downstream
         |-- train
@@ -140,10 +145,12 @@ In this example, the downstream task is predicting the melting temperature of th
 
 ## Step 3. Train
 1. In the Juptyer notebook terminal, run
+
     ```shell
     cd /workspace/BioNeMo
     ```
 2. Run the following command to start training. 
+
     ```shell
     python examples/protein/esm1nv/pretrain.py \
     --config-path=conf \
