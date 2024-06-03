@@ -1,14 +1,12 @@
-# NGC
+# Launch container on NGC
 
-## Launch container on NGC
-
-### Prerequisites
+## Prerequisites
 
 {% hint style="info" %}
 A valid ACE is required to run compute on NGC. Please contact NVIDIA team for NGC access & credentials
 {% endhint %}
 
-### Steps
+## Steps
 
 1.  Open a terminal on your local machine, run the following command
 
@@ -48,7 +46,7 @@ A valid ACE is required to run compute on NGC. Please contact NVIDIA team for NG
 
 3. Wait until the status shows `Running` for 3 minutes. Then click on the link to access JupyterLab. 
     <figure><img src="../.gitbook/assets/images/ngc-job.jpg" alt=""><figcaption><p>NGC Job</p></figcaption></figure>
-    
+
 4. In the terminal, run the `ngc config set` again to set the NGC credentials inside the container. If NGC is not installed, go to [this page](https://org.ngc.nvidia.com/setup/installers/cli) to install it.
 
 5. To download the pretrained model weights, open a terminal in JupyterLab, and run
