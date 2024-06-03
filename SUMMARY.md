@@ -28,6 +28,5 @@
   * [1. Inference](molmim/1.-inference.md)
 
 ## Other Adaptations
-* [Other Adaptations](otherss/README.md)
-  * [Singularity](otherss/singularity/README.md)
-    * [Run BioNeMo as Singularity](otherss/singularity/run_singularity.md)
+* [Singularity](singularity/README.md)
+  * [Run BioNeMo as Singularity](singularity/run_singularity.md)
