@@ -4,4 +4,4 @@
 
 ## Setup
 
-* [Page 1](setup/page-1.md)
+* [NGC](setup/ngc.md)
