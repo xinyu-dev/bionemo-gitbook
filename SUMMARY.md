@@ -5,9 +5,9 @@
 ## Setup
 
 * [1. Configure NGC API Key](setup/configure-ngc-api-key.md)
-  * [2. Choose platform](setup/platform/README.md)
-    * [EC2](setup/platform/ec2.md)
-    * [NGC](setup/platform/ngc.md)
+* [2. Choose platform](setup/platform/README.md)
+  * [EC2](setup/platform/ec2.md)
+  * [NGC](setup/platform/ngc.md)
 
 ## Models
 
