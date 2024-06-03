@@ -27,19 +27,15 @@
     * the folder names must be exactly `train`, `val`, and `test`
     * the file names must be exactly `x000.csv`, `x001.csv`, etc. You can have just 1 CSV file or split into multiple CSVs if it's too large.
     *   the CSV file must contain the following column: `record_id`, `sequence`. It's OK to have other columns which won't be used in training. Download the
-
-        .
-
         <figure><img src="../.gitbook/assets/images/esm1-pretrain-input.jpg" alt="ESM1nv Pretrain Input"><figcaption><p>ESM1nv Pretrain Input</p></figcaption></figure>
 2.  Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, update the following:
 
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-yaml.jpg" alt="Custom YAML Configuration for ESM1nv Pretraining"><figcaption><p>Custom YAML Configuration for ESM1nv Pretraining</p></figcaption></figure>
 
-    \
-    \- `dataset_path`: set to the folder that contains train/val/test folder.\
-    \- `dataset.train`, `dataset.val`, `dataset.test`: set to the CSV name or ranges.\
-    &#x20;\- `csv_mmap.data_col`: set 3 the index of the column containing the sequence. E.g. `3 in the above example` \
-    `- downstr_task_validation.enabled`: set to `True` to enable validation-in-the-loop in Step 2.
+    - `dataset_path`: set to the folder that contains train/val/test folder.
+    - `dataset.train`, `dataset.val`, `dataset.test`: set to the CSV name or ranges.
+    - `csv_mmap.data_col`: set 3 the index of the column containing the sequence. E.g. `3 in the above example` 
+    - `downstr_task_validation.enabled`: set to `True` to enable validation-in-the-loop in Step 2.
 
 ## Step 2. (Optional) prepare clean validation-in-the-loop data
 
@@ -87,12 +83,12 @@ In this example, the downstream task is subcellular location (classification of 
 
     \- the \`target\` column is \`scl\_label\`. Column name doesn't matter - Download a
 
-{% file src="../.gitbook/assets/files/flip_scl/x000.csv" %}
-Template CSV file
-{% endfile %}
+    {% file src="../.gitbook/assets/files/flip_scl/x000.csv" %}
+    Template CSV file
+    {% endfile %}
 
 3. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, make sure `dwnstr_task_validation.enabled = True`
-4.  Go to `examples/protein/esm1nv/conf/base_config.yaml`, under `dwnstr_task_validation`, modify the following columns:
+4. Go to `examples/protein/esm1nv/conf/base_config.yaml`, under `dwnstr_task_validation`, modify the following columns:
 
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-downstream-yaml-classification.jpg" alt="Custom Downstream YAML Configuration for Subcellular Location Prediction"><figcaption><p>Custom Downstream YAML Configuration for Subcellular Location Prediction</p></figcaption></figure>
 
