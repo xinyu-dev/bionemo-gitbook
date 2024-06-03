@@ -10,8 +10,5 @@
 
 ## ESM1nv
 
+* [Pretraining ESM1nv with OAS](esm1nv/pretraining-esm1nv-with-oas.md)
 * [Pretraining ESM1nv with custom data](esm1nv/pretraining-esm1nv-with-custom-data.md)
-
-***
-
-* [Pretraining ESM1nv with OAS](pretraining-esm1nv-with-oas.md)
