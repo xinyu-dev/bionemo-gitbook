@@ -8,11 +8,17 @@
 * [Launch BioNeMo Framework on EC2](setup/ec2.md)
 * [Launch BioNeMo Framework on NGC](setup/ngc.md)
 
+## Models
+
+* [Models](models/README.md)
+  * [ESM1nv](models/esm1nv/README.md)
+
+
 ## ESM1nv
 
-* [Recipes](esm1nv/recipes/README.md)
-  * [Pretraining with custom data](esm1nv/recipes/pretraining-with-custom-data.md)
-  * [Pretraining with OAS](esm1nv/recipes/pretraining-with-oas.md)
+* [Recipes](models/esm1nv/recipes/README.md)
+  * [Pretraining with custom data](models/esm1nv/recipes/pretraining-with-custom-data.md)
+  * [Pretraining with OAS](models/esm1nv/recipes/pretraining-with-oas.md)
 
 ## ESM2nv
 
@@ -32,3 +38,6 @@
 ## MolMIM
 * [1. Inference](molmim/1.-inference.md)
 
+## Other Adaptations
+
+* [1. Inference](other-adaptations/1.-inference.md)
