@@ -1,3 +1,3 @@
 # Pretraining ESM1nv with OAS
 
-test
+test oas
