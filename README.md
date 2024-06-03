@@ -1,6 +1,6 @@
 # Home
 
-## My BioNeMo Usage Tips
+## My BioNeMo GitBook
 
 This site contains my demo and tips for using BioNeMo framework and API.
 
