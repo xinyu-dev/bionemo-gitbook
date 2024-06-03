@@ -28,10 +28,10 @@
         <figure><img src="../.gitbook/assets/images/esm1-pretrain-input.jpg" alt="ESM1nv Pretrain Input"><figcaption><p>ESM1nv Pretrain Input</p></figcaption></figure>
 2. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, update the following: 
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-yaml.jpg" alt="Custom YAML Configuration for ESM1nv Pretraining"><figcaption><p>Custom YAML Configuration for ESM1nv Pretraining</p></figcaption></figure>
-        - `dataset_path`: set to the folder that contains train/val/test folder. E.g. the `path/to/data` in the above example
-        - `dataset.train`, `dataset.val`, `dataset.test`: set to the CSV name or ranges. 
-        - `csv_mmap.data_col`: set 3 the index of the column containing the sequence. E.g. `3` in the above example
-        - `downstr_task_validation.enabled`: set to `True` to enable validation-in-the-loop in Step 2. 
+    - `dataset_path`: set to the folder that contains train/val/test folder. E.g. the `path/to/data` in the above example
+    - `dataset.train`, `dataset.val`, `dataset.test`: set to the CSV name or ranges. 
+    - `csv_mmap.data_col`: set 3 the index of the column containing the sequence. E.g. `3` in the above example
+    - `downstr_task_validation.enabled`: set to `True` to enable validation-in-the-loop in Step 2. 
 
 ## Step 2. (Optional) prepare clean validation-in-the-loop data
 
