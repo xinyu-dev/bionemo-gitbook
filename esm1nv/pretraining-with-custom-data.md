@@ -58,7 +58,7 @@ An example is 3-state structure prediction. Specifically, for each amino acid in
 
     - the `target` column can be either `3state` or `8state`. Column name doesn't matter
     - the `resolved` column is a used as mask. This is optional. If teh structure of some residue is not resolved, you can put `0` in the sequence corresponding to that residue.
-    - Download a {% file src="../.gitbook/assets/files/flip_3state/x000.csv" %} Template CSV file {% endfile %}
+    - Download a [template file](../.gitbook/assets/files/flip_3state/x000.csv)
 
 3. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, make sure `dwnstr_task_validation.enabled = True` 
 4. Go to `examples/protein/esm1nv/conf/base_config.yaml`, under `dwnstr_task_validation`, modify the following columns:
@@ -124,7 +124,7 @@ In this example, the downstream task is predicting the melting temperature of th
 3. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, make sure `dwnstr_task_validation.enabled = True`
 4. Go to `examples/protein/esm1nv/conf/base_config.yaml`, under `dwnstr_task_validation`, modify the following columns:
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-downstream-yaml-regression.jpg" alt="Custom Downstream YAML Configuration for Melting Temperature Prediction"><figcaption><p>Custom Downstream YAML Configuration for Melting Temperature Prediction</p></figcaption></figure>
-    
+
     - `task_class`: set to `SingleValuePredictionCallBack`
     - `task_type`: set to `regression`
     - `task_name`: change to whatever you want
