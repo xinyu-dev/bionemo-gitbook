@@ -13,8 +13,8 @@
 
 * [ESM1nv](esm1nv/README.md)
   * [Recipes](esm1nv/recipes/README.md)
-    * [Pretraining with custom data](esm1nv/recipes/pretraining-with-custom-data.md)
-    * [Pretraining with OAS](esm1nv/recipes/pretraining-with-oas.md)
+    * [Pretrain with custom data](esm1nv/recipes/pretraining-with-custom-data.md)
+    * [Pretrain with OAS](esm1nv/recipes/pretraining-with-oas.md)
 * [ESM2nv](esm2nv/README.md)
   * [1. Pretrain](esm2nv/1.-pretrain.md)
   * [2. Finetune](esm2nv/2.-finetune.md)
