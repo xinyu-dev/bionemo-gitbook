@@ -44,19 +44,17 @@ A valid ACE is required to run compute on NGC. Please contact NVIDIA team for NG
     * `--commandline`: command to run inside the container. In this case, we start JupyterLab and keep it running with `sleep infinity`
 2. Go to [NGC dashboard](https://bc.ngc.nvidia.com/jobs). Click into your job.
   <figure><img src="../.gitbook/assets/images/ngc-dashboard.jpg" alt=""><figcaption><p>NGC Dashboard</p></figcaption></figure>
-3. Wait until the status shows `Running` for 3 minutes. Then click on the link to access JupyterLab. !\[ngc-job]\(\{{ "/assets/images/ngc-job.jpg" | prepend: site.baseurl \}})
+3. Wait until the status shows `Running` for 3 minutes. Then click on the link to access JupyterLab. 
+    <figure><img src="../.gitbook/assets/images/ngc-job.jpg" alt=""><figcaption><p>NGC Job</p></figcaption></figure>
 4. In the terminal, run the `ngc config set` again to set the NGC credentials inside the container. If NGC is not installed, go to [this page](https://org.ngc.nvidia.com/setup/installers/cli) to install it.
 5. To download the pretrained model weights, open a terminal in JupyterLab, and run
-
-```shell
-cd /workspace/bionemo
-python download_models.py all --source ngc --download_dir ${BIONEMO_HOME}/models --verbose
-```
-
-This will download models to `/workspace/bionemo/models` folder. 5. Optionally, persist the models by copying them to your workspace
-
-```shell
-mkdir -p xyu-workspace1/bionemo && cp -r models xyu-workspace1/bionemo/models
-```
-
-6. The final directory structure should look like this: !\[ngc-jupyterlab]\(\{{ "/assets/images/ngc-jupyterlab.jpg" | prepend: site.baseurl \}})
+  ```shell
+  cd /workspace/bionemo
+  python download_models.py all --source ngc --download_dir ${BIONEMO_HOME}/models --verbose
+  ```
+  This will download models to `/workspace/bionemo/models` folder. 5. Optionally, persist the models by copying them to your workspace
+  ```shell
+  mkdir -p xyu-workspace1/bionemo && cp -r models xyu-workspace1/bionemo/models
+  ```
+6. The final directory structure should look like this:
+  <figure><img src="../.gitbook/assets/images/ngc-jupyterlab.jpg" alt=""><figcaption><p>NGC JupyterLab</p></figcaption></figure>
