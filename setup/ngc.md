@@ -1,4 +1,4 @@
-# Launch container on NGC
+# Launch BioNeMo Framework on NGC
 
 ## Prerequisites
 
