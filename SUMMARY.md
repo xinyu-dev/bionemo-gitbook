@@ -16,10 +16,10 @@
 
 ## ESM2nv
 
-* [Page](esm2nv/page.md)
+* [1. Pretrain](esm2nv/1.-pretrain.md)
+* [2. Finetune](esm2nv/2.-finetune.md)
+* [3. Inference](esm2nv/3.-inference.md)
 * [NIM](esm2nv/nim/README.md)
   * [Page 1](esm2nv/nim/page-1.md)
 * [Recipes](esm2nv/recipes/README.md)
-  * [1. Pretrain](esm2nv/recipes/page-2.md)
-  * [2. Finetune](esm2nv/2.-finetune.md)
-  * [3. Inference](esm2nv/3.-inference.md)
+  * [Page](esm2nv/recipes/page.md)
