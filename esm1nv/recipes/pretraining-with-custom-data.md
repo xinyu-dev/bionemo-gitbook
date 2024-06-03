@@ -4,7 +4,7 @@
 1. Set up BioNeMo and have Jupyter Lab instance running.  
 
 
-## Step 1. Prepare clean training data
+## 1. Prepare clean training data
 
 1. In a directory inside the container, create the following folder structure: 
     ```
@@ -37,7 +37,7 @@
     - `csv_mmap.data_col`: set 3 the index of the column containing the sequence. E.g. `3` in the above example
     - `downstr_task_validation.enabled`: set to `True` to enable validation-in-the-loop in Step 2. 
 
-## Step 2. (Optional) prepare clean validation-in-the-loop data
+## 2. (Optional) prepare clean validation-in-the-loop data
 
 
 ### Scenario 1: Downstream task is per-token classification
@@ -142,7 +142,7 @@ In this example, the downstream task is predicting the melting temperature of th
     - `mask_column`: comment this out. 
 
 
-## Step 3. Train
+## 3. Train
 1. In the Juptyer notebook terminal, run
 
     ```shell

@@ -5,16 +5,16 @@
 
 ## Steps
 
-### Step 1. Prepare download script
+### 1. Prepare download script
 1. Go to [OAS](https://opig.stats.ox.ac.uk/webapps/oas/oas_paired/), do not put in any search attributes, just click on Search button. 
 
 2. Download the shell script. 
 
-	<figure><img src="../../.gitbook/assets/images/oas_download.jpg.jpg" alt="OAS Download"><figcaption><p>OAS Download</p></figcaption></figure>
+	<figure><img src="../../.gitbook/assets/images/oas_download.jpg" alt="OAS Download"><figcaption><p>OAS Download</p></figcaption></figure>
 	
 3. Rename it to `oas_paired_subset_download.sh`. Upload to `/workspace/bionemo/bionemo/data/preprocess/protein` folder in the container
 
-### Step 2. Prepare preprocessing script
+### 2. Prepare preprocessing script
 1. Download [oas_preprocess.py](https://github.com/xinyu-dev/bionemo-demo/blob/main/scripts/pretrain_esm1nv_oas/oas_preprocess.py) to `/workspace/bionemo/bionemo/data/preprocess/protein` folder.
 
 	```bash
@@ -28,7 +28,7 @@
 	```
 	As shown above, only VH is processed. If you want to process VL, make changes accordingly. 
 
-### Step 3. Setup config YAML
+### 3. Setup config YAML
 1. Download [pretrain_oas.yaml](https://github.com/xinyu-dev/bionemo-demo/blob/main/scripts/pretrain_esm1nv_oas/pretrain_oas.yaml) to `workspace/bionemo/examples/protein/esm1nv/conf` folder.
 
 	```bash
@@ -40,7 +40,7 @@
 	do_training: False
 	```
 
-### Step 4. Set up pretrain.py
+### 4. Set up pretrain.py
 1. Copy [pretrain_oas.py](https://github.com/xinyu-dev/bionemo-demo/blob/main/scripts/pretrain_esm1nv_oas/pretrain_oas.py) to `/workspace/bionemo/examples/protein/esm1nv` folder. 
 
 	```bash
@@ -48,7 +48,7 @@
 	```
 
 
-### Step 5. Run preprocessing
+### 5. Run preprocessing
 Run the python file
 ```shell
 cd /workspace/bionemo
@@ -64,7 +64,7 @@ The clean file looks like this:
 <figure><img src="../../.gitbook/assets/images/oas_vh_clean.png" alt="OAS Clean"><figcaption><p>OAS Clean</p></figcaption></figure>
 
 
-### Step 6. Run training
+### 6. Run training
 1. In `pretrain_oas.yaml` file, set `do_training: True` activate training mode. Make sure the dataset path, train, test, val file path, and data_col is properly set
 
 	```yaml
