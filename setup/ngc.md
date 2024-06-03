@@ -47,9 +47,11 @@ A valid ACE is required to run compute on NGC. Please contact NVIDIA team for NG
   cd /workspace/bionemo
   python download_models.py all --source ngc --download_dir ${BIONEMO_HOME}/models --verbose
   ```
-  This will download models to `/workspace/bionemo/models` folder. 5. Optionally, persist the models by copying them to your workspace
+  This will download models to `/workspace/bionemo/models` folder.
+  Optionally, persist the models by copying them to your workspace
   ```shell
   mkdir -p xyu-workspace1/bionemo && cp -r models xyu-workspace1/bionemo/models
   ```
 6. The final directory structure should look like this:
   <figure><img src="../.gitbook/assets/images/ngc-jupyterlab.jpg" alt=""><figcaption><p>NGC JupyterLab</p></figcaption></figure>
+
