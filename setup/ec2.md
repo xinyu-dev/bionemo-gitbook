@@ -15,13 +15,13 @@
    <figure><img src="../.gitbook/assets/images/ec2-name-instance.jpg" alt=""><figcaption><p>Name Instance</p></figcaption></figure>
 3. Under **Application & OS Images**:
    - select **Browse more AMIs**.
-   <figure><img src="../.gitbook/assets/images/ec2-browse-ami.jpg" alt=""><figcaption><p>Browse AMIs</p></figcaption></figure>
+        <figure><img src="../.gitbook/assets/images/ec2-browse-ami.jpg" alt=""><figcaption><p>Browse AMIs</p></figcaption></figure>
    - Type `nvidia` in the search bar. Press `Enter`. Then click on **AWS Marketplace AMI**. Then select **NVIDIA GPU Optimized VMI** and click on **Select**.
-   <figure><img src="../.gitbook/assets/images/ec2-choose-ami.jpg" alt=""><figcaption><p>choose AMI</p></figcaption></figure>
+         <figure><img src="../.gitbook/assets/images/ec2-choose-ami.jpg" alt=""><figcaption><p>choose AMI</p></figcaption></figure>
    - When prompted, select **Subscribe Now**
-8. Under **instance type**, select **p3dn.24xlarge**.
+4. Under **instance type**, select **p3dn.24xlarge**.
    <figure><img src="../.gitbook/assets/images/ec2-choose-instance.jpg" alt=""><figcaption><p>choose instance</p></figcaption></figure>
-9. Under **key pair**: Choose an existing key pair or create a new one. If you create a new one, enter a keypair name, then select **RSA** and **.pem**. Download the **.pem** file for later use. 
+5. Under **key pair**: Choose an existing key pair or create a new one. If you create a new one, enter a keypair name, then select **RSA** and **.pem**. Download the **.pem** file for later use. 
    <figure><img src="../.gitbook/assets/images/ec2-keypairs.jpg" alt=""><figcaption><p>choose key pair</p></figcaption></figure>
 10. Under **Network settings**: choose the network, subnet, and security group that you want to use. An example is shown below but should be modified according to your organization's policies.
    <figure><img src="../.gitbook/assets/images/ec2-network-settings.jpg" alt=""><figcaption><p>choose network</p></figcaption></figure>
@@ -77,7 +77,7 @@
     cd /workspace/bionemo
     python download_models.py all --source ngc --download_dir ${BIONEMO_HOME}/models --verbose
     ```
-This will create download the models to `/workspace/bionemo/models` folder. 
+    This will create download the models to `/workspace/bionemo/models` folder. 
 6. Optionally, persist the models by copying them to your workspace
     ```shell
     mkdir -p xyu-workspace1/bionemo && cp -r models xyu-workspace1/bionemo/models
