@@ -17,7 +17,7 @@
    \- `org`: Choose from the list the NGC org that you have access to. \
    \- `team`: Choose from the NGC team you're assigned with 8. `ace`: choose a ACE, otherwise press `Enter`
 
-### `Notes`
+## Notes
 
 1. `org`, `team` is only important when you are pulling private containers/datasets from NGC that you or your team created. For BioNeMo Framework, just choose the default value.
 2. `ace` only matters if you're using NGC to run the job. If you're using AWS, just choose any from the options provided by the prompt.
