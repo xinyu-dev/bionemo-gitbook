@@ -27,3 +27,8 @@
 ## MegaMolBART
 
 * [1. Inference](megamolbart/1.-inference.md)
+
+
+## MolMIM
+* [1. Inference](molmim/1.-inference.md)
+
