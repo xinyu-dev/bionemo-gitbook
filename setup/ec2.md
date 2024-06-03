@@ -1,4 +1,4 @@
-# EC2
+# Launch BioNeMo Framework on EC2
 
 ## Prerequisites
 
