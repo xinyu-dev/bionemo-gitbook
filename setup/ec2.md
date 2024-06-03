@@ -12,7 +12,7 @@
 1. In [AWS EC2 console](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1), click on **Launch Instance**. This will open a instance specification page. 
     <figure><img src="../.gitbook/assets/images/ec2-launch-instance.jpg" alt=""><figcaption><p>Launch Instance</p></figcaption></figure>
 2. **Name**: enter a name for your instance
-   <figure><img src="../.gitbook/assets/images/ec2-name-instance.jpg" alt=""><figcaption><p>Name Instance</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/images/ec2-name-instance.jpg" alt=""><figcaption><p>Name Instance</p></figcaption></figure>
 3. Under **Application & OS Images**:
    - select **Browse more AMIs**.
         <figure><img src="../.gitbook/assets/images/ec2-browse-ami.jpg" alt=""><figcaption><p>Browse AMIs</p></figcaption></figure>
@@ -20,11 +20,11 @@
          <figure><img src="../.gitbook/assets/images/ec2-choose-ami.jpg" alt=""><figcaption><p>choose AMI</p></figcaption></figure>
    - When prompted, select **Subscribe Now**
 4. Under **instance type**, select **p3dn.24xlarge**.
-   <figure><img src="../.gitbook/assets/images/ec2-choose-instance.jpg" alt=""><figcaption><p>choose instance</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/images/ec2-choose-instance.jpg" alt=""><figcaption><p>choose instance</p></figcaption></figure>
 5. Under **key pair**: Choose an existing key pair or create a new one. If you create a new one, enter a keypair name, then select **RSA** and **.pem**. Download the **.pem** file for later use. 
-   <figure><img src="../.gitbook/assets/images/ec2-keypairs.jpg" alt=""><figcaption><p>choose key pair</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/images/ec2-keypairs.jpg" alt=""><figcaption><p>choose key pair</p></figcaption></figure>
 6. Under **Network settings**: choose the network, subnet, and security group that you want to use. An example is shown below but should be modified according to your organization's policies.
-   <figure><img src="../.gitbook/assets/images/ec2-network-settings.jpg" alt=""><figcaption><p>choose network</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/images/ec2-network-settings.jpg" alt=""><figcaption><p>choose network</p></figcaption></figure>
 7. Keep other settings default (or change them as needed). At least 124G root EBS volume is recommended as shown in the default setting for pretrained models & datasets.
 8. Click on **Launch Instance**. Wait until the `Instance State` becomes `running`.
 
@@ -81,7 +81,7 @@
     ```shell
     mkdir -p xyu-workspace1/bionemo && cp -r models xyu-workspace1/bionemo/models
     ```
-Next time, when you launch the container, you can mount the `models` folder to the container under the `/workspace/bionemo` directory.
+    Next time, when you launch the container, you can mount the `models` folder to the container under the `/workspace/bionemo` directory.
 7. The final directory structure should look like this:
     <figure><img src="../.gitbook/assets/images/ngc-jupyterlab.jpg" alt=""><figcaption><p>ngc-jupyterlab</p></figcaption></figure>
 
