@@ -28,10 +28,10 @@
         <figure><img src="../.gitbook/assets/images/esm1-pretrain-input.jpg" alt="ESM1nv Pretrain Input"><figcaption><p>ESM1nv Pretrain Input</p></figcaption></figure>
 2. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, update the following: 
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-yaml.jpg" alt="Custom YAML Configuration for ESM1nv Pretraining"><figcaption><p>Custom YAML Configuration for ESM1nv Pretraining</p></figcaption></figure>
-    - `dataset_path`: set to the folder that contains train/val/test folder. E.g. the `path/to/data` in the above example
-    - `dataset.train`, `dataset.val`, `dataset.test`: set to the CSV name or ranges. 
-    - `csv_mmap.data_col`: set 3 the index of the column containing the sequence. E.g. `3` in the above example
-    - `downstr_task_validation.enabled`: set to `True` to enable validation-in-the-loop in Step 2. 
+        - `dataset_path`: set to the folder that contains train/val/test folder. E.g. the `path/to/data` in the above example
+        - `dataset.train`, `dataset.val`, `dataset.test`: set to the CSV name or ranges. 
+        - `csv_mmap.data_col`: set 3 the index of the column containing the sequence. E.g. `3` in the above example
+        - `downstr_task_validation.enabled`: set to `True` to enable validation-in-the-loop in Step 2. 
 
 ## Step 2. (Optional) prepare clean validation-in-the-loop data
 
@@ -50,22 +50,22 @@ An example is 3-state structure prediction. Specifically, for each amino acid in
     ```
 2. Each CSV file needs to contain `id`, `sequence`, and `target` column. For example: 
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-downstream.jpg" alt="Custom Downstream for 3-state Structure Prediction"><figcaption><p>Custom Downstream for 3-state Structure Prediction</p></figcaption></figure>
-    - the `target` column can be either `3state` or `8state`. Column name doesn't matter
-    - the `resolved` column is a used as mask. This is optional. If teh structure of some residue is not resolved, you can put `0` in the sequence corresponding to that residue.
-    - Download a {% file src="../.gitbook/assets/files/flip_3state/x000.csv" %} Template CSV file {% endfile %}
+        - the `target` column can be either `3state` or `8state`. Column name doesn't matter
+        - the `resolved` column is a used as mask. This is optional. If teh structure of some residue is not resolved, you can put `0` in the sequence corresponding to that residue.
+        - Download a {% file src="../.gitbook/assets/files/flip_3state/x000.csv" %} Template CSV file {% endfile %}
 3. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, make sure `dwnstr_task_validation.enabled = True` 
 4. Go to `examples/protein/esm1nv/conf/base_config.yaml`, under `dwnstr_task_validation`, modify the following columns:
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-custom-downstream-yaml.jpg" alt="Custom Downstream YAML Configuration for 3-state Structure Prediction"><figcaption><p>Custom Downstream YAML Configuration for 3-state Structure Prediction</p></figcaption></figure>
-    Specifically: 
-        - `task_class`: set to the `PerTokenPredictionCallBack`class
-        - `task_type`: set to `token-level-classification`
-        - `task_name`: change to whatever you want
-        - `dataset_path`: set to the folder that contains train/test folder. E.g. the `path/to/downstream` in the above example
-        - `dataset.train`, `dataset.test`: set to the file name. E.g. `x000` in the above example
-        - `sequence_column`: set to name of the column that contains the sequence. E.g. `sequence` in the above example
-        - `target_column`: set to name of the column that contains the target. E.g. `3state` in the above example/ 
-        - `target_size`: set to number of classes. E.g. `3` in the above example
-        - `mask_column`: set to name of the column that contains the mask. E.g. `resolved` in the above example. If no mask, set to `mask_column: [null]`. 
+        Specifically: 
+            - `task_class`: set to the `PerTokenPredictionCallBack`class
+            - `task_type`: set to `token-level-classification`
+            - `task_name`: change to whatever you want
+            - `dataset_path`: set to the folder that contains train/test folder. E.g. the `path/to/downstream` in the above example
+            - `dataset.train`, `dataset.test`: set to the file name. E.g. `x000` in the above example
+            - `sequence_column`: set to name of the column that contains the sequence. E.g. `sequence` in the above example
+            - `target_column`: set to name of the column that contains the target. E.g. `3state` in the above example/ 
+            - `target_size`: set to number of classes. E.g. `3` in the above example
+            - `mask_column`: set to name of the column that contains the mask. E.g. `resolved` in the above example. If no mask, set to `mask_column: [null]`. 
 
 ### Scenario 2: Downstream task is sequence-level classification
 In this example, the downstream task is subcellular location (classification of the protein sequences belonging to one of the 10 subcellular compartments)
