@@ -7,9 +7,11 @@
 
 ### Step 1. Prepare download script
 1. Go to [OAS](https://opig.stats.ox.ac.uk/webapps/oas/oas_paired/), do not put in any search attributes, just click on Search button. 
+
 2. Download the shell script. 
 
 	<figure><img src="../.gitbook/assets/images/oas_download.jpg.jpg" alt="ESM1nv Pretrain Input"><figcaption><p>OAS Download</p></figcaption></figure>
+	
 3. Rename it to `oas_paired_subset_download.sh`. Upload to `/workspace/bionemo/bionemo/data/preprocess/protein` folder in the container
 
 ### Step 2. Prepare preprocessing script
@@ -88,6 +90,6 @@ The clean file looks like this:
 	```shell
 	python examples/protein/esm1nv/pretrain_oas.py
 	```
-	
+
 	When asked about Weights and Biases, select option 2 to use your existing WandB account, then enter your WandB API key. If you prefer not to use WandB, select option 3, or set `create_wandb_logger: False` in the YAML file.
 3. The results will be saved in `/workspace/bionemo/results` folder.
