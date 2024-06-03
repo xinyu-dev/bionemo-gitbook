@@ -10,8 +10,9 @@
 
 ## ESM1nv
 
-* [Pretraining with OAS](esm1nv/pretraining-with-oas.md)
-* [Pretraining with custom data](esm1nv/pretraining-with-custom-data.md)
+* [Recipes](esm1nv/recipes/README.md)
+  * [Pretraining with custom data](esm1nv/recipes/pretraining-with-custom-data.md)
+  * [Pretraining with OAS](esm1nv/recipes/pretraining-with-oas.md)
 
 ## ESM2nv
 
