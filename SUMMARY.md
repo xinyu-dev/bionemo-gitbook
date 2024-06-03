@@ -20,6 +20,6 @@
 * [2. Finetune](esm2nv/2.-finetune.md)
 * [3. Inference](esm2nv/3.-inference.md)
 * [NIM](esm2nv/nim/README.md)
-  * [Page 1](esm2nv/nim/page-1.md)
+  * [1. Inference](esm2nv/nim/page-1.md)
 * [Recipes](esm2nv/recipes/README.md)
-  * [Page](esm2nv/recipes/page.md)
+  * [Zero-Shot Protein Design](esm2nv/recipes/page.md)
