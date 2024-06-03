@@ -25,12 +25,12 @@
 
     - the folder names must be exactly `train`, `val`, and `test`
     - the file names must be exactly `x000.csv`, `x001.csv`, etc. You can have just 1 CSV file or split into multiple CSVs if it's too large. 
-    - the CSV file must contain the following column: `record_id`, `sequence`. It's OK to have other columns which won't be used in training.  Download the [Template CSV file](../../.gitbook/assets/files/esm1nv_pretrain_input/x000.csv")
+    - the CSV file must contain the following column: `record_id`, `sequence`. It's OK to have other columns which won't be used in training.  Download the [Template CSV file](/.gitbook/assets/files/esm1nv_pretrain_input/x000.csv")
 
-    <figure><img src="../../.gitbook/assets/images/esm1-pretrain-input.jpg" alt="ESM1nv Pretrain Input"><figcaption><p>ESM1nv Pretrain Input</p></figcaption></figure>
+    <figure><img src="/.gitbook/assets/images/esm1-pretrain-input.jpg" alt="ESM1nv Pretrain Input"><figcaption><p>ESM1nv Pretrain Input</p></figcaption></figure>
 2. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, update the following: 
 
-    <figure><img src="../../.gitbook/assets/images/esm1-pretrain-custom-yaml.jpg" alt="Custom YAML Configuration for ESM1nv Pretraining"><figcaption><p>Custom YAML Configuration for ESM1nv Pretraining</p></figcaption></figure>
+    <figure><img src="/.gitbook/assets/images/esm1-pretrain-custom-yaml.jpg" alt="Custom YAML Configuration for ESM1nv Pretraining"><figcaption><p>Custom YAML Configuration for ESM1nv Pretraining</p></figcaption></figure>
 
     - `dataset_path`: set to the folder that contains train/val/test folder. E.g. the `path/to/data` in the above example
     - `dataset.train`, `dataset.val`, `dataset.test`: set to the CSV name or ranges. 
@@ -55,16 +55,16 @@ An example is 3-state structure prediction. Specifically, for each amino acid in
     ```
 2. Each CSV file needs to contain `id`, `sequence`, and `target` column. For example: 
 
-    <figure><img src="../../.gitbook/assets/images/esm1-pretrain-custom-downstream.jpg" alt="Custom Downstream for 3-state Structure Prediction"><figcaption><p>Custom Downstream for 3-state Structure Prediction</p></figcaption></figure>
+    <figure><img src="/.gitbook/assets/images/esm1-pretrain-custom-downstream.jpg" alt="Custom Downstream for 3-state Structure Prediction"><figcaption><p>Custom Downstream for 3-state Structure Prediction</p></figcaption></figure>
 
     - the `target` column can be either `3state` or `8state`. Column name doesn't matter
     - the `resolved` column is a used as mask. This is optional. If teh structure of some residue is not resolved, you can put `0` in the sequence corresponding to that residue.
-    - Download a [template file](../../.gitbook/assets/files/flip_3state/x000.csv)
+    - Download a [template file](/.gitbook/assets/files/flip_3state/x000.csv)
 
 3. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, make sure `dwnstr_task_validation.enabled = True` 
 4. Go to `examples/protein/esm1nv/conf/base_config.yaml`, under `dwnstr_task_validation`, modify the following columns:
 
-    <figure><img src="../../.gitbook/assets/images/esm1-pretrain-custom-downstream-yaml.jpg" alt="Custom Downstream YAML Configuration for 3-state Structure Prediction"><figcaption><p>Custom Downstream YAML Configuration for 3-state Structure Prediction</p></figcaption></figure>
+    <figure><img src="/.gitbook/assets/images/esm1-pretrain-custom-downstream-yaml.jpg" alt="Custom Downstream YAML Configuration for 3-state Structure Prediction"><figcaption><p>Custom Downstream YAML Configuration for 3-state Structure Prediction</p></figcaption></figure>
 
     Specifically: 
     - `task_class`: set to the `PerTokenPredictionCallBack`class
@@ -90,14 +90,14 @@ In this example, the downstream task is subcellular location (classification of 
     ```
 2. Each CSV file needs to contain `id`, `sequence`, and `target` column. For example: 
 
-    <figure><img src="../../.gitbook/assets/images/esm1-pretrain-custom-downstream-classification.jpg" alt="Custom Downstream for Subcellular Location Prediction"><figcaption><p>Custom Downstream for Subcellular Location Prediction</p></figcaption></figure>
+    <figure><img src="/.gitbook/assets/images/esm1-pretrain-custom-downstream-classification.jpg" alt="Custom Downstream for Subcellular Location Prediction"><figcaption><p>Custom Downstream for Subcellular Location Prediction</p></figcaption></figure>
 
     - the `target` column is `scl_label`. Column name doesn't matter
-    - Download a [template file](../../.gitbook/assets/files/flip_scl/x000.csv)
+    - Download a [template file](/.gitbook/assets/files/flip_scl/x000.csv)
 3. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, make sure `dwnstr_task_validation.enabled = True` 
 4. Go to `examples/protein/esm1nv/conf/base_config.yaml`, under `dwnstr_task_validation`, modify the following columns:
 
-    <figure><img src="../../.gitbook/assets/images/esm1-pretrain-custom-downstream-yaml-classification.jpg" alt="Custom Downstream YAML Configuration for Subcellular Location Prediction"><figcaption><p>Custom Downstream YAML Configuration for Subcellular Location Prediction</p></figcaption></figure>
+    <figure><img src="/.gitbook/assets/images/esm1-pretrain-custom-downstream-yaml-classification.jpg" alt="Custom Downstream YAML Configuration for Subcellular Location Prediction"><figcaption><p>Custom Downstream YAML Configuration for Subcellular Location Prediction</p></figcaption></figure>
 
     - `task_class`: set to `SingleValuePredictionCallBack`
     - `task_type`: set to `classification`
@@ -122,14 +122,14 @@ In this example, the downstream task is predicting the melting temperature of th
     ```
 2. Each CSV file needs to contain `id`, `sequence`, and `target` column. For example:
 
-    <figure><img src="../../.gitbook/assets/images/esm1-pretrain-custom-downstream-regression.jpg" alt="Custom Downstream for Melting Temperature Prediction"><figcaption><p>Custom Downstream for Melting Temperature Prediction</p></figcaption></figure>
+    <figure><img src="/.gitbook/assets/images/esm1-pretrain-custom-downstream-regression.jpg" alt="Custom Downstream for Melting Temperature Prediction"><figcaption><p>Custom Downstream for Melting Temperature Prediction</p></figcaption></figure>
 
     - the `target` column is `target`. Column name doesn't matter
-    - Download a [template file](../../.gitbook/assets/files/flip_meltome/x000.csv)
+    - Download a [template file](/.gitbook/assets/files/flip_meltome/x000.csv)
 3. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, make sure `dwnstr_task_validation.enabled = True`
 4. Go to `examples/protein/esm1nv/conf/base_config.yaml`, under `dwnstr_task_validation`, modify the following columns:
 
-    <figure><img src="../../.gitbook/assets/images/esm1-pretrain-custom-downstream-yaml-regression.jpg" alt="Custom Downstream YAML Configuration for Melting Temperature Prediction"><figcaption><p>Custom Downstream YAML Configuration for Melting Temperature Prediction</p></figcaption></figure>
+    <figure><img src="/.gitbook/assets/images/esm1-pretrain-custom-downstream-yaml-regression.jpg" alt="Custom Downstream YAML Configuration for Melting Temperature Prediction"><figcaption><p>Custom Downstream YAML Configuration for Melting Temperature Prediction</p></figcaption></figure>
 
     - `task_class`: set to `SingleValuePredictionCallBack`
     - `task_type`: set to `regression`
