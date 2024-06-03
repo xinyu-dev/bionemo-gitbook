@@ -9,16 +9,11 @@
 * [Launch BioNeMo Framework on NGC](setup/ngc.md)
 
 ## Models
+* [ESM1nv](models/esm1nv/README.md)
+  * [Recipes](models/esm1nv/recipes/README.md)
+    * [Pretraining with custom data](models/esm1nv/recipes/pretraining-with-custom-data.md)
+    * [Pretraining with OAS](models/esm1nv/recipes/pretraining-with-oas.md)
 
-* [Models](models/README.md)
-  * [ESM1nv](models/esm1nv/README.md)
-
-
-## ESM1nv
-
-* [Recipes](models/esm1nv/recipes/README.md)
-  * [Pretraining with custom data](models/esm1nv/recipes/pretraining-with-custom-data.md)
-  * [Pretraining with OAS](models/esm1nv/recipes/pretraining-with-oas.md)
 
 ## ESM2nv
 
