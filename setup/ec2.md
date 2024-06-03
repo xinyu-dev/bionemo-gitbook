@@ -23,25 +23,24 @@
    <figure><img src="../.gitbook/assets/images/ec2-choose-instance.jpg" alt=""><figcaption><p>choose instance</p></figcaption></figure>
 5. Under **key pair**: Choose an existing key pair or create a new one. If you create a new one, enter a keypair name, then select **RSA** and **.pem**. Download the **.pem** file for later use. 
    <figure><img src="../.gitbook/assets/images/ec2-keypairs.jpg" alt=""><figcaption><p>choose key pair</p></figcaption></figure>
-10. Under **Network settings**: choose the network, subnet, and security group that you want to use. An example is shown below but should be modified according to your organization's policies.
+6. Under **Network settings**: choose the network, subnet, and security group that you want to use. An example is shown below but should be modified according to your organization's policies.
    <figure><img src="../.gitbook/assets/images/ec2-network-settings.jpg" alt=""><figcaption><p>choose network</p></figcaption></figure>
-11. Keep other settings default (or change them as needed). 
-    - At least 124G root EBS volume is recommended as shown in the default setting for pretrained models & datasets.
-12. Click on **Launch Instance**. Wait until the `Instance State` becomes `running`.
+7. Keep other settings default (or change them as needed). At least 124G root EBS volume is recommended as shown in the default setting for pretrained models & datasets.
+8. Click on **Launch Instance**. Wait until the `Instance State` becomes `running`.
 
 
 ### Step 2. Connect to a running instance
-12. In the EC2 console, wait until the instance state becomes `running`. Then copy the **Public IP4 address** or **Private IP4 address** of the instance, depending on your network settings. 
+1. In the EC2 console, wait until the instance state becomes `running`. Then copy the **Public IP4 address** or **Private IP4 address** of the instance, depending on your network settings. 
     <figure><img src="../.gitbook/assets/images/ec2-copy-ip.jpg" alt=""><figcaption><p>copy IP</p></figcaption></figure>
-13. Open a terminal at the local folder where you keep the **.pem** file that was used during instance launch.  Run the following command to change the permissions of the **.pem** file. Replace `your-key-pair.pem` with the name of your **.pem** file.
+2. Open a terminal at the local folder where you keep the **.pem** file that was used during instance launch.  Run the following command to change the permissions of the **.pem** file. Replace `your-key-pair.pem` with the name of your **.pem** file.
     ```shell
     chmod 400 your-key-pair.pem
     ```
-14. SSH into the instance.Replace `your-ip4-address` with the public or private IP4 address of your instance. 
+3. SSH into the instance.Replace `your-ip4-address` with the public or private IP4 address of your instance. 
     ```shell
     ssh -i your-key-pair.pem -L 8888:127.0.0.1:8888 ubuntu@your-ip4-address
     ```
-15. The first time when you log into the instance, driver installation will start automatically. Wait until the system is ready. 
+4. The first time when you log into the instance, driver installation will start automatically. Wait until the system is ready. 
 
 ### Step 3. Pull the BioNeMo container
 1. NGC CLI is preinstalled. In the ubuntu terminal, type
