@@ -23,3 +23,7 @@
   * [1. Inference](esm2nv/nim/1.-inference.md)
 * [Recipes](esm2nv/recipes/README.md)
   * [Zero-Shot Mutant Design](esm2nv/recipes/zero-shot-mutant-design.md)
+
+## MegaMolBART
+
+* [1. Inference](megamolbart/1.-inference.md)
