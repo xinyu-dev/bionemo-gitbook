@@ -7,7 +7,6 @@
 ## Step 1. Prepare clean training data
 
 1. In a directory inside the container, create the following folder structure: 
-
     ```
     |-- data
         |-- train
@@ -26,7 +25,7 @@
 
     - the folder names must be exactly `train`, `val`, and `test`
     - the file names must be exactly `x000.csv`, `x001.csv`, etc. You can have just 1 CSV file or split into multiple CSVs if it's too large. 
-    - the CSV file must contain the following column: `record_id`, `sequence`. It's OK to have other columns which won't be used in training.  Download the {% file src="../.gitbook/assets/files/esm1nv_pretrain_input/x000.csv" %} Template CSV file {% endfile %}.
+    - the CSV file must contain the following column: `record_id`, `sequence`. It's OK to have other columns which won't be used in training.  Download the [Template CSV file](../.gitbook/assets/files/esm1nv_pretrain_input/x000.csv")
 
     <figure><img src="../.gitbook/assets/images/esm1-pretrain-input.jpg" alt="ESM1nv Pretrain Input"><figcaption><p>ESM1nv Pretrain Input</p></figcaption></figure>
 2. Go to `examples/protein/esm1nv/conf/pretrain_small.yaml`, update the following: 
