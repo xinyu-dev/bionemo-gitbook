@@ -1,4 +1,4 @@
-# Pretraining with OAS
+# Pretrain ESM1nv with OAS
 
 ## Prerequisites
 1. Set up BioNeMo and have Jupyter Lab instance running.  
