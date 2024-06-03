@@ -3,8 +3,11 @@
 ### Steps
 
 1. Create an account on [NGC](https://bc.ngc.nvidia.com/jobs) where you can access clusters and launch training jobs.
-2. Log into NGC account. Then click on **user** on top right corner, then **Setup**&#x20;
+
+2. Log into NGC account. Then click on **user** on top right corner, then **Setup**
+    <figure><img src="../.gitbook/assets/images/ngc-apikey-1.jpg" alt=""><figcaption><p>NGC API Key</p></figcaption></figure>
 3. Click on **Generate API Key**
+   <figure><img src="../.gitbook/assets/images/ngc-apikey-2.jpg" alt=""><figcaption><p>NGC API Key</p></figcaption></figure>
 4. Copy the API key.
 5. Install NGC CLI from [here](https://ngc.nvidia.com/setup/installers/cli)
 6. Open a terminal from your local machine, run\
@@ -16,5 +19,5 @@
 
 ### `Notes`
 
-1. `org`, `team` is only important when you are pulling private containers/datasets from NGC that you or your team created. For BioNeMo Framework, just choose the default value.&#x20;
-2. &#x20;`ace` only matters if you're using NGC to run the job. If you're using AWS, just choose any from the options provided by the prompt.
+1. `org`, `team` is only important when you are pulling private containers/datasets from NGC that you or your team created. For BioNeMo Framework, just choose the default value.
+2. `ace` only matters if you're using NGC to run the job. If you're using AWS, just choose any from the options provided by the prompt.
