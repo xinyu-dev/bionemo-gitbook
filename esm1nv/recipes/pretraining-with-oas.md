@@ -69,7 +69,7 @@ The data will be downloaded and split into train/val/test in `/workspace/bionemo
 
 The clean file looks like this:
 
-<figure><img src="../../models/.gitbook/assets/images/oas_vh_clean.png" alt="OAS Clean"><figcaption><p>OAS Clean</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/images/oas_vh_clean.png" alt=""><figcaption></figcaption></figure>
 
 ### 6. Run training
 
