@@ -16,7 +16,7 @@
 
 ### 2. Prepare preprocessing script
 
-1.  Download [oas\_preprocess.py](https://github.com/xinyu-dev/bionemo-demo/blob/main/scripts/pretrain\_esm1nv\_oas/oas\_preprocess.py) to `/workspace/bionemo/bionemo/data/preprocess/protein` folder.
+1.  Download [oas\_preprocess.py](https://github.com/xinyu-dev/bionemo-demo/blob/main/scripts/pretrain\_esm1nv\_oas/oas\_preprocess.py) to `/workspace/bionemo/bionemo/data/preprocess/protein` folder, by running the code below:&#x20;
 
     ```bash
     curl -o /workspace/bionemo/bionemo/data/preprocess/protein/oas_preprocess.py https://raw.githubusercontent.com/xinyu-dev/bionemo-demo/main/scripts/pretrain_esm1nv_oas/oas_preprocess.py
@@ -32,7 +32,7 @@
 
 ### 3. Setup config YAML
 
-1.  Download [pretrain\_oas.yaml](https://github.com/xinyu-dev/bionemo-demo/blob/main/scripts/pretrain\_esm1nv\_oas/pretrain\_oas.yaml) to `workspace/bionemo/examples/protein/esm1nv/conf` folder.
+1.  Download [pretrain\_oas.yaml](https://github.com/xinyu-dev/bionemo-demo/blob/main/scripts/pretrain\_esm1nv\_oas/pretrain\_oas.yaml) to `workspace/bionemo/examples/protein/esm1nv/conf` folder, by running the code below:&#x20;
 
     ```bash
     curl -o /workspace/bionemo/examples/protein/esm1nv/conf/pretrain_oas.yaml https://raw.githubusercontent.com/xinyu-dev/bionemo-demo/main/scripts/pretrain_esm1nv_oas/pretrain_oas.yaml
@@ -45,7 +45,7 @@
 
 ### 4. Set up pretrain.py
 
-1.  Copy [pretrain\_oas.py](https://github.com/xinyu-dev/bionemo-demo/blob/main/scripts/pretrain\_esm1nv\_oas/pretrain\_oas.py) to `/workspace/bionemo/examples/protein/esm1nv` folder.
+1.  Copy [pretrain\_oas.py](https://github.com/xinyu-dev/bionemo-demo/blob/main/scripts/pretrain\_esm1nv\_oas/pretrain\_oas.py) to `/workspace/bionemo/examples/protein/esm1nv` folder, by running the code below:&#x20;
 
     ```bash
     curl -o /workspace/bionemo/examples/protein/esm1nv/pretrain_oas.py https://raw.githubusercontent.com/xinyu-dev/bionemo-demo/main/scripts/pretrain_esm1nv_oas/pretrain_oas.py
@@ -69,7 +69,7 @@ The data will be downloaded and split into train/val/test in `/workspace/bionemo
 
 The clean file looks like this:
 
-<figure><img src="../../.gitbook/assets/images/oas_vh_clean.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/images/oas_vh_clean.png" alt=""><figcaption><p>Clean File After Processing</p></figcaption></figure>
 
 ### 6. Run training
 
