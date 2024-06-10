@@ -92,8 +92,7 @@
 6.  Then run
 
     ```shell
-    cd /workspace/bionemo
-    python download_models.py all --source ngc --download_dir ${BIONEMO_HOME}/models --verbose
+    cd /workspace/bionemo && python download_models.py all --source ngc --download_dir ${BIONEMO_HOME}/models --verbose
     ```
 
     This will create download the models to `/workspace/bionemo/models` folder.
