@@ -22,13 +22,12 @@ See detailed example below
 The following example sets up a local triton server and uses `inference.ipynb`
 {% endhint %}
 
-1.  Find `infer.yaml` file for the model. For example, for MolMIM, it is located at `/workspace/bionemo/examples/molecule/molmim/conf/infer.yaml` Make sure the model path is is correct (if you follow the [setup guide](broken-reference/) it should be good).
-
-    <pre class="language-yaml"><code class="lang-yaml"><strong>downstream_task:
-    </strong>  restore_from_path: ${oc.env:BIONEMO_HOME}/models/molecule/molmim/molmim_70m_24_3.nemo
-    </code></pre>
+1.  Find `infer.yaml` file for the model. For example, for MolMIM, it is located at `/workspace/bionemo/examples/molecule/molmim/conf/infer.yaml` Make sure the model path is is correct (if you follow the [setup guide](/setup), it should be good).
+    ```yaml
+    downstream_task:
+        restore_from_path: ${oc.env:BIONEMO_HOME}/models/molecule/molmim/molmim_70m_24_3.nemo
+    ```
 2.  Open a terminal, then export environment variable. For example, to use GPU:1 instead of GPU:0, type:
-
     ```bash
     export CUDA_VISIBLE_DEVICES=1
     ```
@@ -42,4 +41,4 @@ The following example sets up a local triton server and uses `inference.ipynb`
     * `--config-name`: this should point to `infer.yaml`
 4. Wait for \~ 2 minutes for the triton to finish launching.&#x20;
 5. Go to `/workspace/bionemo/examples/molecule/molmim/nbs/Inference.ipynb`. Run through the blocks. The model is now served on GPU:1. You can verify this by opening a new terminal, and run nvidia-smi. It should show something like this: ![molmim-change-gpu](/.gitbook/assets/images/molmim-change-gpu.jpg)
-6. To kill the triton server and release memory, go to the terminal where you have the triton server running, and press `contrl+c` to stop the server.&#x20;
+6. To kill the triton server and release memory, go to the terminal where you have the triton server running, and press `contrl+c` to stop the server.
