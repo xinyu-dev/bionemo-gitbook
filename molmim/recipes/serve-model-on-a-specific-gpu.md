@@ -22,7 +22,7 @@ See detailed example below
 The following example sets up a local triton server and uses `inference.ipynb`
 {% endhint %}
 
-1.  Find `infer.yaml` file for the model. For example, for MolMIM, it is located at `/workspace/bionemo/examples/molecule/molmim/conf/infer.yaml` Make sure the model path is is correct (if you follow the [setup guide](setup/platform/README.md), it should be good).
+1.  Find `infer.yaml` file for the model. For example, for MolMIM, it is located at `/workspace/bionemo/examples/molecule/molmim/conf/infer.yaml` Make sure the model path is is correct (if you follow the setup guide on this site, it should be good).
     ```yaml
     downstream_task:
         restore_from_path: ${oc.env:BIONEMO_HOME}/models/molecule/molmim/molmim_70m_24_3.nemo
