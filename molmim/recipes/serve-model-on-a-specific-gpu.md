@@ -43,5 +43,5 @@ The following example sets up a local triton server and uses `inference.ipynb`
     * `--config-path`: this should point to the folder that contains the YAML file
     * `--config-name`: this should point to `infer.yaml`
 4. Wait for \~ 2 minutes for the triton to finish launching.&#x20;
-5. Go to `/workspace/bionemo/examples/molecule/molmim/nbs/Inference.ipynb`. Run through the blocks. The model is now served on GPU:1. You can verify this by opening a new terminal, and run nvidia-smi. It should show something like this: ![molmim-change-gpu](../../.gitbook/assets/images/molmim-change-gpu.jpg)
+5. Go to `/workspace/bionemo/examples/molecule/molmim/nbs/Inference.ipynb`. Run through the blocks. The model is now served on GPU:1. You can verify this by opening a new terminal, and run nvidia-smi. It should show something like this: ![molmim-change-gpu](/.gitbook/assets/images/molmim-change-gpu.jpg)
 6. To kill the triton server and release memory, go to the terminal where you have the triton server running, and press `contrl+c` to stop the server.&#x20;
