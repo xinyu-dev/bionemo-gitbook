@@ -27,7 +27,10 @@
   * [1. Inference](megamolbart/1.-inference.md)
 * [MolMIM](molmim/README.md)
   * [1. Inference](molmim/1.-inference.md)
+  * [Recipes](models/molmim/recipes/README.md)
+    * [Serve model on a specific GPU](models/molmim/recipes/serve-model-on-a-specific-gpu.md)
 
 ## Other Adaptations
+
 * [Singularity](singularity/README.md)
-  * [Run BioNeMo as Singularity](singularity/run_singularity.md)
+  * [Run BioNeMo as Singularity](singularity/run\_singularity.md)
