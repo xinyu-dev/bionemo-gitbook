@@ -66,7 +66,11 @@
    * `org`: Enter the NGC org you're assigned with
    * `team`: Enter the NGC team you're assigned with
    * `ace`: Enter the `ace` and press `Enter`
-3.  Pull the BioNeMo container image from NGC.
+3. If this is a newly created instance, in order to use docker without `sudo`, run:  
+    ```shell
+    newgrp docker
+    ```
+4. Pull the BioNeMo container image from NGC.
 
     ```shell
     docker pull nvcr.io/nvidia/clara/bionemo-framework:1.5
