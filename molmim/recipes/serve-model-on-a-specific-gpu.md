@@ -33,13 +33,11 @@ The following example sets up a local triton server and uses `inference.ipynb`
     export CUDA_VISIBLE_DEVICES=1
     ```
 3.  In the terminal, run
-
-    {% code fullWidth="true" %}
     ```bash
-    python -m bionemo.triton.inference_wrapper --config-path /workspace/bionemo/examples/molecule/molmim/conf --config-name infer.yaml
+    python -m bionemo.triton.inference_wrapper \
+    --config-path /workspace/bionemo/examples/molecule/molmim/conf \
+    --config-name infer.yaml
     ```
-    {% endcode %}
-
     * `--config-path`: this should point to the folder that contains the YAML file
     * `--config-name`: this should point to `infer.yaml`
 4. Wait for \~ 2 minutes for the triton to finish launching.&#x20;
