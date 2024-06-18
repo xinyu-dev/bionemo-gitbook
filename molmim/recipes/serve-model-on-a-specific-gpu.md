@@ -27,11 +27,14 @@ The following example sets up a local triton server and uses `inference.ipynb`
     <pre class="language-yaml"><code class="lang-yaml"><strong>downstream_task:
     </strong>  restore_from_path: ${oc.env:BIONEMO_HOME}/models/molecule/molmim/molmim_70m_24_3.nemo
     </code></pre>
-2. Open a terminal, then export environment variable. For example, to use GPU:1 instead of GPU:0, type:&#x20;
-
-```bash
-export CUDA_VISIBLE_DEVICES=1
-```
-
-1.
-
+2. Open a terminal, then export environment variable. For example, to use GPU:1 instead of GPU:0, type:
+    ```bash
+    export CUDA_VISIBLE_DEVICES=1
+    ```
+3. In the terminal, run
+	```bash
+	python -m bionemo.triton.inference_wrapper --config-path /workspace/bionemo/examples/molecule/molmim/conf --config-name infer.yaml
+	```
+	- `--config-path`: this should point to the folder that contains the YAML file
+	- `--config-name`: this should point to `infer.yaml`
+4. Go to `/workspace/bionemo/examples/molecule/molmim/nbs/Inference.ipynb`. Run through the blocks
