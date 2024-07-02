@@ -55,7 +55,7 @@
 
 ### Step 3. Pull the BioNeMo container
 
-1.  NGC CLI is preinstalled. (If not, you can install it from [here](https://org.ngc.nvidia.com/setup/installers/cli))  In the ubuntu terminal, type
+1.  NGC CLI is preinstalled. (If not, you can install it from [here](https://org.ngc.nvidia.com/setup/installers/cli)) In the ubuntu terminal, type
 
     ```shell
     ngc config set
@@ -66,11 +66,12 @@
    * `org`: Enter the NGC org you're assigned with
    * `team`: Enter the NGC team you're assigned with
    * `ace`: Enter the `ace` and press `Enter`
-3. If this is a newly created instance, in order to use docker without `sudo`, run:  
+3.  If this is a newly created instance, in order to use docker without `sudo`, run:
+
     ```shell
     newgrp docker
     ```
-4. Pull the BioNeMo container image from NGC.
+4.  Pull the BioNeMo container image from NGC.
 
     ```shell
     docker pull nvcr.io/nvidia/clara/bionemo-framework:1.5
@@ -93,13 +94,34 @@
 3. You can now access JupyterLab by visitn `localhost:8888` in your web browser.
 4. To download the pretrained model weights, open a terminal in JupyterLab.
 5. In the terminal, run the `ngc config set` again to set the NGC credentials inside the container.
-6.  Then run
+6.  Then we need to download the model checkpoints.  You can either 1) download all model checkpoints in BioNeMo, or 2) download selected models. To see a list of available models, navigate to `/workspace/bionemo/artifact_paths.yaml` file. \
+    For convenience, we will download the model checkpoints to `/workspace/bionemo/models` folder. This is done using the `--download_dir ${BIONEMO_HOME}/models` below.  While this path is configurable by user, it is the default path in the built-in `infer.yaml` files.  \
+    **Method 1: Download all models in BioNeMo Framework**
 
     ```shell
-    cd /workspace/bionemo && python download_models.py all --source ngc --download_dir ${BIONEMO_HOME}/models --verbose
+    cd /workspace/bionemo && python download_models.py all \
+    --source ngc \
+    --download_dir ${BIONEMO_HOME}/models \
+    --verbose
     ```
 
-    This will create download the models to `/workspace/bionemo/models` folder.
+    **Method 2: Download the model you specify:**&#x20;
+
+    ```shell
+    cd /workspace/bionemo && python download_models.py <model-name> \
+    --source ngc \
+    --download_dir ${BIONEMO_HOME}/models \
+    --verbose
+    ```
+
+    For example, to download MegaMolBART, replace `<model-name>` with `megamolbart` like this:&#x20;
+
+    ```shell
+    cd /workspace/bionemo && python download_models.py megamolbart \
+    --source ngc \
+    --download_dir ${BIONEMO_HOME}/models \
+    --verbose
+    ```
 7.  Optionally, persist the models by copying them to your workspace
 
     ```shell
