@@ -2,14 +2,14 @@
 
 * [Home](README.md)
 
-## Setup
+## BioNeMo Framework Setup
 
 * [1. Configure NGC API Key](setup/configure-ngc-api-key.md)
 * [2. Choose platform](setup/platform/README.md)
   * [EC2](setup/platform/ec2.md)
   * [NGC](setup/platform/ngc.md)
 
-## Models
+## BioNeMo Framework Models
 
 * [ESM1nv](esm1nv/README.md)
   * [Recipes](esm1nv/recipes/README.md)
@@ -19,8 +19,6 @@
   * [1. Pretrain](esm2nv/1.-pretrain.md)
   * [2. Finetune](esm2nv/2.-finetune.md)
   * [3. Inference](esm2nv/3.-inference.md)
-  * [NIM](esm2nv/nim/README.md)
-    * [1. Inference](esm2nv/nim/1.-inference.md)
   * [Recipes](esm2nv/recipes/README.md)
     * [Zero-Shot Mutant Design](esm2nv/recipes/zero-shot-mutant-design.md)
 * [MegaMolBART](megamolbart/README.md)
