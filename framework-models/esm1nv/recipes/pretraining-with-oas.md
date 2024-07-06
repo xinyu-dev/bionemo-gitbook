@@ -11,7 +11,7 @@
 1. Go to [OAS](https://opig.stats.ox.ac.uk/webapps/oas/oas\_paired/), do not put in any search attributes, just click on Search button.
 2.  Download the shell script.
 
-    <figure><img src="../../.gitbook/assets/images/oas_download.jpg" alt=""><figcaption><p>OAS Download</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/images/oas_download.jpg" alt=""><figcaption><p>OAS Download</p></figcaption></figure>
 3. Rename it to `oas_paired_subset_download.sh`. Upload to `/workspace/bionemo/bionemo/data/preprocess/protein` folder in the container
 
 ### 2. Prepare preprocessing script
@@ -69,7 +69,7 @@ The data will be downloaded and split into train/val/test in `/workspace/bionemo
 
 The clean file looks like this:
 
-<figure><img src="../../.gitbook/assets/images/oas_vh_clean.png" alt=""><figcaption><p>Clean File After Processing</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/images/oas_vh_clean.png" alt=""><figcaption><p>Clean File After Processing</p></figcaption></figure>
 
 ### 6. Run training
 

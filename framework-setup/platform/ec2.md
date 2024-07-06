@@ -86,9 +86,11 @@
     ```
 2.  Start the container. Replace `xyu-workspace1` with your workspace name.
 
+    {% code overflow="wrap" %}
     ```shell
     docker run --rm -d --gpus all -p 8888:8888 -v /home/ubuntu/xyu-workspace1:/workspace/bionemo/xyu-workspace1 nvcr.io/nvidia/clara/bionemo-framework:1.5 "jupyter lab --allow-root --ip=* --port=8888 --no-browser --NotebookApp.token='' --NotebookApp.allow_origin='*' --ContentsManager.allow_hidden=True --notebook-dir=/workspace/bionemo"
     ```
+    {% endcode %}
 
     * The `/workspace/bionemo` is the directory inside the container that contains the example and code. I prefer to use it as my home directory when working inside the container. Mount your local folders to this directory by changing the path in `-v` tag.
 3. You can now access JupyterLab by visitn `localhost:8888` in your web browser.
@@ -124,9 +126,11 @@
        ```
 7.  Optionally, persist the models by copying them to your workspace
 
+    {% code overflow="wrap" %}
     ```shell
     mkdir -p xyu-workspace1/bionemo && cp -r models xyu-workspace1/bionemo/models
     ```
+    {% endcode %}
 
     Next time, when you launch the container, you can mount the `models` folder to the container under the `/workspace/bionemo` directory.
 8.  The final directory structure should look like this:
@@ -137,7 +141,46 @@
 
 ### Choice of instance type.
 
-We test BioNeMo on A100, but usually V100 and A10 can also be used.
+We test BioNeMo on A100, H100, but usually V100 and A10 can also be used.
+
+### Alternative virtual machine images
+
+Instead of using the  **NVIDIA GPU Optimized VMI** , you can also use other VMI from the market place, provided by AWS, or built by your self. The general consideration is:&#x20;
+
+1. x86 Linux system (e.g. Ubuntu 22.04) with GPU support. See [this page](https://docs.nvidia.com/bionemo-framework/latest/pre-reqs.html) for more details
+2. Docker
+3. CUDA drivers
+4. NVIDIA docker container toolkits.&#x20;
+
+The easiest way to test if you have these ready is by running this command:&#x20;
+
+```bash
+docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
+```
+
+It should produce something similar to this, depending on your system
+
+```
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.54.14              Driver Version: 550.54.14      CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100 80GB HBM3          On  |   00000000:1B:00.0 Off |                    0 |
+| N/A   36C    P0            112W /  700W |   78489MiB /  81559MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+```
 
 ### Volume
 
