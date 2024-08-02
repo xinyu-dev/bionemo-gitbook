@@ -71,6 +71,8 @@
     ```shell
     newgrp docker
     ```
+
+    Alternatively, you can just exit the SSH connection and reconnect.&#x20;
 4.  Pull the BioNeMo container image from NGC.
 
     ```shell
