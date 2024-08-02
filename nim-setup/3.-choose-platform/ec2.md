@@ -2,8 +2,8 @@
 
 ## Prerequisites
 
-{% content-ref url="../1.-get-access-to-nims.md" %}
-[1.-get-access-to-nims.md](../1.-get-access-to-nims.md)
+{% content-ref url="../1.-request-nim-access.md" %}
+[1.-request-nim-access.md](../1.-request-nim-access.md)
 {% endcontent-ref %}
 
 {% content-ref url="../2.-configure-ngc-api-key.md" %}

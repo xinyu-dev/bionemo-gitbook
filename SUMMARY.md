@@ -35,7 +35,7 @@
 
 ## NIM Setup
 
-* [1. Get access to NIMs](nim-setup/1.-get-access-to-nims.md)
+* [1. Get access to NIMs](nim-setup/1.-request-nim-access.md)
 * [2. Configure NGC API Key](nim-setup/2.-configure-ngc-api-key.md)
 * [3. Choose platform](nim-setup/3.-choose-platform/README.md)
   * [EC2](nim-setup/3.-choose-platform/ec2.md)
