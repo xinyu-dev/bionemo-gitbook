@@ -42,5 +42,7 @@
 
 ## NIM Models
 
-* [ESMFold](nim-models/esmfold/README.md)
-  * [1. Quick Start](nim-models/esmfold/1.-quick-start.md)
+* [Diffdock NIM](nim-models/diffdock-nim/README.md)
+  * [1. Quick Start](nim-models/diffdock-nim/1.-quick-start.md)
+* [ESMFold NIM](nim-models/esmfold-nim/README.md)
+  * [1. Quick Start](nim-models/esmfold-nim/1.-quick-start.md)
