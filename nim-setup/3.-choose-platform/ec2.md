@@ -56,26 +56,47 @@
     ssh -i your-key-pair.pem -L 8888:127.0.0.1:8888 ubuntu@your-ip4-address
     ```
 4. The first time when you log into the instance, driver installation will start automatically. Wait until the system is ready.
-5.  NGC CLI should already been preinstalled. (If not, you can install it from [here](https://org.ngc.nvidia.com/setup/installers/cli)) In the ubuntu terminal, type
+
+### Step 3. Configure NGC and Docker
+
+1.  NGC CLI should already been preinstalled if you're using the NVIDIA GPU Optimized AMI. (If not, you can install it from [here](https://org.ngc.nvidia.com/setup/installers/cli)).  In the ubuntu terminal, type
 
     ```shell
     ngc config set
     ```
-6. Enter the information as prompted:
+2. Enter the information as prompted:
    * `API key`: enter API key. **Note that this has to be a API key with NVAIE entitlement** (e.g. you have started a NVAIE trial, or your account has an active NAVIE license)**.**&#x20;
    * `CLI output`: accept default (ascii) by pressing `Enter`
    * `org`: Enter the NGC org you're assigned with, or just use default.&#x20;
    * `team`: Enter the NGC team you're assigned with, or just use default.&#x20;
    * `ace`: Enter the `ace` and press `Enter`, or just use default.&#x20;
-7.  If this is a newly created instance, in order to use docker without `sudo`, run:
+3.  If this is a newly created instance, in order to use docker without `sudo`, run:
 
     ```shell
     newgrp docker
     ```
 
-    Alternatively, you can just exit the SSH connection and reconect.&#x20;
-8.
-9. Continue with the **NIM Models** section for the quick start guide on specific models.&#x20;
+    Alternatively, you can just exit the SSH connection and reconnect.&#x20;
+4.  Log into docker with&#x20;
+
+    ```shell
+    docker login nvcr.io
+    ```
+
+    Username should be exactly the phrase `$oauthtoken` . Password should be NGC API key.&#x20;
+5.  Check if `NGC_API_KEY` environment variable already exists:&#x20;
+
+    ```shell
+    echo $NGC_API_KEY
+    ```
+
+    If returns nothing, set it by
+
+    ```shell
+    echo "export NGC_API_KEY=YOUR_API_KEY" >> ~/.bash_profile \
+    && source ~/.bash_profile
+    ```
+6. Continue with the **NIM Models** section for the quick start guide on specific models.&#x20;
 
 
 
