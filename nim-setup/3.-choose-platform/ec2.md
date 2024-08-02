@@ -56,7 +56,26 @@
     ssh -i your-key-pair.pem -L 8888:127.0.0.1:8888 ubuntu@your-ip4-address
     ```
 4. The first time when you log into the instance, driver installation will start automatically. Wait until the system is ready.
-5. Continue with the **NIM Models** section for the quick start guide on specific models.&#x20;
+5.  NGC CLI should already been preinstalled. (If not, you can install it from [here](https://org.ngc.nvidia.com/setup/installers/cli)) In the ubuntu terminal, type
+
+    ```shell
+    ngc config set
+    ```
+6. Enter the information as prompted:
+   * `API key`: enter API key. **Note that this has to be a API key with NVAIE entitlement** (e.g. you have started a NVAIE trial, or your account has an active NAVIE license)**.**&#x20;
+   * `CLI output`: accept default (ascii) by pressing `Enter`
+   * `org`: Enter the NGC org you're assigned with, or just use default.&#x20;
+   * `team`: Enter the NGC team you're assigned with, or just use default.&#x20;
+   * `ace`: Enter the `ace` and press `Enter`, or just use default.&#x20;
+7.  If this is a newly created instance, in order to use docker without `sudo`, run:
+
+    ```shell
+    newgrp docker
+    ```
+
+    Alternatively, you can just exit the SSH connection and reconect.&#x20;
+8.
+9. Continue with the **NIM Models** section for the quick start guide on specific models.&#x20;
 
 
 
