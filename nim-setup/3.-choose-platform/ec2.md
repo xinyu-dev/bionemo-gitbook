@@ -32,11 +32,14 @@
 5.  Under **key pair**: Choose an existing key pair or create a new one. If you create a new one, enter a keypair name, then select **RSA** and **.pem**. Download the **.pem** file for later use.
 
     <figure><img src="../../.gitbook/assets/images/ec2-keypairs.jpg" alt=""><figcaption><p>choose key pair</p></figcaption></figure>
-6.  Under **Network settings**: choose the network, subnet, and security group that you want to use. For **security group**, you must open a **TCP port 8008** to interact with the BioNeMo NIM API interface. An example security group with inbound and outbound rules is shown below. Configure the source as needed.&#x20;
+6.  Under **Network settings**: choose the network, subnet, and security group that you want to use. For **security group**, you must open a **TCP port 8000** and **TCP port 8008** to interact with the BioNeMo NIM API interface. Most of NIMs interact with port 8000, but some legacy or early access NIMs might interact with port 8008. An example security group with inbound and outbound rules is shown below. Configure the source as needed. \
 
-    <figure><img src="../../.gitbook/assets/ec2-security-group-inbound.jpg" alt=""><figcaption><p>security-group-inbound</p></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/ec2-security-group-outbound.jpg" alt=""><figcaption><p>security-group-outbound</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/nim-security-group-inbound (2).jpg" alt=""><figcaption><p>Security Group - Inbound</p></figcaption></figure>
+
+
+
+    <figure><img src="../../.gitbook/assets/ec2-security-group-outbound.jpg" alt=""><figcaption><p>Security Group - Outbound</p></figcaption></figure>
 7. Keep other settings default (or change them as needed). At least 124G root EBS volume is recommended as shown in the default setting.
 8. Click on **Launch Instance**. Wait until the `Instance State` becomes `running`.
 
@@ -53,7 +56,7 @@
 3.  SSH into the instance.Replace `your-ip4-address` with the public or private IP4 address of your instance.
 
     ```shell
-    ssh -i your-key-pair.pem -L 8888:127.0.0.1:8888 ubuntu@your-ip4-address
+    ssh -i your-key-pair.pem ubuntu@your-ip4-address
     ```
 4. The first time when you log into the instance, driver installation will start automatically. Wait until the system is ready.
 
