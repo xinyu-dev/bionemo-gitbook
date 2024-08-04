@@ -2,11 +2,7 @@
 
 ## My BioNeMo GitBook
 
-This site contains my demo and tips for using BioNeMo framework and API.
-
-### Models
-
-Check the left side bar
+This site contains my demo and tips for using BioNeMo framework and API. View the site at [here](https://xinyu-dev.gitbook.io/bionemo-gitbook)
 
 ### Resources
 
