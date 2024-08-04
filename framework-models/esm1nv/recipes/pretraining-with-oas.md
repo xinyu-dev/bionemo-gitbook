@@ -16,7 +16,7 @@
 
 ### 2. Prepare preprocessing script
 
-1.  Download [oas_preprocess.py](./examples/scripts/pretrain_esm1nv_oas/oas_preprocess.py) to `/workspace/bionemo/bionemo/data/preprocess/protein` folder, by running the code below:&#x20;
+1.  Download [oas_preprocess.py](/examples/scripts/pretrain_esm1nv_oas/oas_preprocess.py) to `/workspace/bionemo/bionemo/data/preprocess/protein` folder, by running the code below:&#x20;
 
     ```bash
     curl -o /workspace/bionemo/bionemo/data/preprocess/protein/oas_preprocess.py https://raw.githubusercontent.com/xinyu-dev/bionemo-gitbook/main/examples/scripts/pretrain_esm1nv_oas/oas_preprocess.py
@@ -32,7 +32,7 @@
 
 ### 3. Setup config YAML
 
-1.  Download [pretrain_oas.yaml](./examples/scripts/pretrain_esm1nv_oas/pretrain_oas.yaml) to `workspace/bionemo/examples/protein/esm1nv/conf` folder, by running the code below:&#x20;
+1.  Download [pretrain_oas.yaml](/examples/scripts/pretrain_esm1nv_oas/pretrain_oas.yaml) to `workspace/bionemo/examples/protein/esm1nv/conf` folder, by running the code below:&#x20;
 
     ```bash
     curl -o /workspace/bionemo/examples/protein/esm1nv/conf/pretrain_oas.yaml https://raw.githubusercontent.com/xinyu-dev/bionemo-gitbook/main/examples/scripts/pretrain_esm1nv_oas/pretrain_oas.yaml
@@ -45,7 +45,7 @@
 
 ### 4. Set up pretrain.py
 
-1.  Copy [pretrain_oas.py](./examples/scripts/pretrain_esm1nv_oas/pretrain_oas.py) to `/workspace/bionemo/examples/protein/esm1nv` folder, by running the code below:&#x20;
+1.  Copy [pretrain_oas.py](/examples/scripts/pretrain_esm1nv_oas/pretrain_oas.py) to `/workspace/bionemo/examples/protein/esm1nv` folder, by running the code below:&#x20;
 
     ```bash
     curl -o /workspace/bionemo/examples/protein/esm1nv/pretrain_oas.py https://raw.githubusercontent.com/xinyu-dev/bionemo-gitbook/main/examples/scripts/pretrain_esm1nv_oas/pretrain_oas.py
