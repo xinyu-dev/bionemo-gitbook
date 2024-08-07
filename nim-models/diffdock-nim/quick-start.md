@@ -659,7 +659,7 @@ Specifically:
 
 #### Runtime
 
-Below is the runtime using Diffodck version `nvcr.io/nim/mit/diffdock:1.2.0`
+Below is the runtime of the example datasets using Diffodck version `nvcr.io/nim/mit/diffdock:1.2.0`
 
 | instance                 | number of poses | dataset       | total run time (sec) | per ligand runtime (sec) |
 | ------------------------ | --------------- | ------------- | -------------------- | ------------------------ |
@@ -673,7 +673,10 @@ Notes:
 * aa2ar example: 80 compounds, split into 8 batches of 10 compounds/batch
 * abl1 example: 40 compounds, split into 8 batches of 5 compounds/batch
 * `per ligand runtime = total runtime/number of ligands`.
-* When batch size is small, you can see that A10 and A100 are similarly fast. But A100 has 80G of memeory while A10 only has 24G, so with large screens, A100 might still confer a significant advantage due to its ability to accomondate larger batch size.
+* Because V100 has a much GPU memory (16G) compared to A100 (80G), the mock datasets used here have relatively small size. When running actual large-scale docking, the benefits of using A100 could be even more significant advantage due to its ability to accomondate larger batch size.
+* Below is a separate benchmark study on a larger dataset of 22754 ligands across 102 targets (also collected from DUD-E):&#x20;
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-08-07 at 5.09.00 PM.png" alt=""><figcaption><p>Benchmark of Diffdock (v1.2.0) on DUD-E</p></figcaption></figure>
 
 Check out the [complete notebook](../../examples/notebooks/Diffdock/NIM/run\_diffdock\_nim.ipynb).
 
