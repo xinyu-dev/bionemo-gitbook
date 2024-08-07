@@ -1,0 +1,11 @@
+molecule_id,category,smiles,status,fail
+10,active,Nc5nc(c1ccccc1)c4c(=O)c3ccc(NCCN2CCOCC2)cc3c4n5,pending,0
+11,active,CCCn5c(=O)n(CCC)c4[nH]c(c3ccc(OCc2noc(c1ccccc1OC)n2)cc3)nc4c5=O,pending,0
+12,active,CCN(C(C)=O)c3ccc(OC)c4nc(NC(=O)c2ccc(CN1CCCC1=O)cc2)sc34,pending,0
+13,active,CN4CCN(CC(=O)Nc3cc(n1nc(C)cc1C)nc(c2ccccn2)n3)CC4,pending,0
+14,active,Nc5nc(c1ccccc1)c4c(=O)c3ccc(CNN2CCCC2)cc3c4n5,pending,0
+15,active,Cc3ccc(c2cc(C(=O)NCc1cc(C)on1)nc(N)n2)o3,pending,0
+16,active,COCCOc6ccc(N5CCN(CCn1cnc3c1nc(N)n4nc(c2ccccn2)nc34)CC5)cc6,pending,0
+17,active,CN(CCN2CCN(c1ccc(F)cc1F)CC2)c5cc4nc(c3nccnc3C)nn4c(N)n5,pending,0
+18,active,OC[C@@H]1CCCN1c4nc(c2nccs2)c3sccc3n4,pending,0
+19,active,COc4ccc(NC(=O)N=NNc3nc(N)c2ncn(C1O[C@H](CO)[C@@H](O)[C@H]1O)c2n3)cc4,pending,0
