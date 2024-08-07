@@ -1,0 +1,6 @@
+molecule_id,category,smiles,status,fail
+20,decoy,CCOc1ccccc1[C@@H]2C3=C(c4ccccc4O2)N=C5N=CNN5[C@H]3c6ccc(c(c6)OC)OCC,pending,0
+21,decoy,Cc1ccc(cc1)n2c(=O)c3ccccc3n4c2nnc4S[C@@H](C)C(=O)NC5(CCCCC5)C#N,pending,0
+22,decoy,C[C@@H](C(=O)Nc1ccc(cc1Cl)F)OC(=O)C2CCN(CC2)c3ccc(c[nH+]3)C(F)(F)F,pending,0
+23,decoy,CC1(CC2=C([C@H]([C@@H]3C(=NC(=NC3=O)SCc4ccccc4F)N2)c5ccccc5[N+](=O)[O-])C(=O)C1)C,pending,0
+24,decoy,CC1=C([C@@H](C2=C(N1)C[C@@H](CC2=O)c3ccccc3)c4cccc(c4)F)C(=O)OCC(C)C,pending,0
