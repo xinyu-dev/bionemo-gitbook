@@ -669,6 +669,7 @@ Notes:
 * aa2ar example: 80 compounds, split into 8 batches of 10 compounds/batch
 * abl1 example: 40 compounds, split into 8 batches of 5 compounds/batch
 * `per ligand runtime = total runtime/number of ligands`.
+* When batch size is small, you can see that A10 and A100 are similarly fast. But A100 has 80G of memeory while A10 only has 24G, so with large screens, A100 might still confer a significant advantage due to its ability to accomondate larger batch size. 
 
 Check out the [complete notebook](../../examples/notebooks/Diffdock/NIM/run\_diffdock\_nim.ipynb).&#x20;
 
