@@ -202,3 +202,10 @@ singularity run \
 bionemo-framework.sif \
 "jupyter lab --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='' --NotebookApp.allow_origin='*' --ContentsManager.allow_hidden=True --notebook-dir=/workspace/bionemo"
 ```
+
+
+
+
+```
+singularity build grover.sif docker-daemon:nvcr.io/ghsemt2ean4b/mol-prop-pred/grover:07102024
+```
