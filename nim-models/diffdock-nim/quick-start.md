@@ -6,7 +6,7 @@ This guide assumes you're hosting NIM on your own infrastructure. See [Get acces
 
 ## Prerequisites
 
-1. Complete the **NIM Setup** section.&#x20;
+1. Complete the **NIM Setup** section.
 
 ## Step 1. Download NIM container
 
@@ -14,7 +14,7 @@ This guide assumes you're hosting NIM on your own infrastructure. See [Get acces
 docker pull nvcr.io/nim/mit/diffdock:1.2.0
 ```
 
-## Step 2. First time set up&#x20;
+## Step 2. First time set up
 
 ### Cache model weights
 
@@ -131,8 +131,7 @@ you should be able to find a block of text that looks like this:
 ]
 ```
 
-This should match the GPU devices you specified. Similarly, if you have a 4-GPU instance, you can just do `./configure_instances.sh 0 1 2 3`. Because this modified file is cached on local volume, in the future, we can simply do `docker run` command without having to worry about the config file.\
-
+This should match the GPU devices you specified. Similarly, if you have a 4-GPU instance, you can just do `./configure_instances.sh 0 1 2 3`. Because this modified file is cached on local volume, in the future, we can simply do `docker run` command without having to worry about the config file.\\
 
 ## Step 3. Launch container
 
@@ -166,7 +165,7 @@ This should match the GPU devices you specified. Similarly, if you have a 4-GPU 
     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
     ```
 
-## Step 4.  Health check
+## Step 4. Health check
 
 With the triton server running, we can conduct a health check. Open a new terminal on your instance, then run:
 
@@ -228,7 +227,7 @@ assert response.text == "true", "Health check failed"
 ```
 ````
 
-Continue to the **Usage case section below.**&#x20;
+Continue to the **Usage case section below.**
 
 ## Usage case 1: single GPU, small dataset
 
@@ -327,7 +326,7 @@ result = submit_query(
 ```
 ````
 
-Output looks something like this:&#x20;
+Output looks something like this:
 
 ```
 CPU times: user 5.6 ms, sys: 499 μs, total: 6.09 ms
@@ -343,7 +342,7 @@ response.keys()
 ```
 ````
 
-Output looks like this:&#x20;
+Output looks like this:
 
 ```
 dict_keys(['trajectory', 'ligand_positions', 'position_confidence', 'status', 'protein', 'ligand'])
@@ -358,7 +357,7 @@ This shows the success or failed status of each ligand
 response['status']
 ```
 
-Out:&#x20;
+Out:
 
 ```
 ['success', 'success', 'success']
@@ -366,7 +365,7 @@ Out:&#x20;
 
 #### Trajectory
 
-`trajectory`is the diffusion trajectory. Because we set `"save_trajectory": False`, it is just empty lists.&#x20;
+`trajectory`is the diffusion trajectory. Because we set `"save_trajectory": False`, it is just empty lists.
 
 #### Ligand poses
 
@@ -405,7 +404,7 @@ assert len(response['position_confidence'][0]) == 5
 response['position_confidence'][0]
 ```
 
-Out:&#x20;
+Out:
 
 ```
 [0.12911391258239746,
@@ -437,7 +436,7 @@ First, install RDKit:
 pip install rdkit
 ```
 
-Then:&#x20;
+Then:
 
 ```python
 from rdkit import Chem
@@ -499,7 +498,7 @@ response['protein']
 response['ligand']
 ```
 
-Check out the [complete notebook](../../examples/notebooks/Diffdock/NIM/run\_diffdock\_nim.ipynb).&#x20;
+Check out the [complete notebook](../../examples/notebooks/Diffdock/NIM/run\_diffdock\_nim.ipynb).
 
 ## Usage case 2: multi GPU, large dataset
 
@@ -669,9 +668,48 @@ Notes:
 * aa2ar example: 80 compounds, split into 8 batches of 10 compounds/batch
 * abl1 example: 40 compounds, split into 8 batches of 5 compounds/batch
 * `per ligand runtime = total runtime/number of ligands`.
-* When batch size is small, you can see that A10 and A100 are similarly fast. But A100 has 80G of memeory while A10 only has 24G, so with large screens, A100 might still confer a significant advantage due to its ability to accomondate larger batch size. 
+* When batch size is small, you can see that A10 and A100 are similarly fast. But A100 has 80G of memeory while A10 only has 24G, so with large screens, A100 might still confer a significant advantage due to its ability to accomondate larger batch size.
 
-Check out the [complete notebook](../../examples/notebooks/Diffdock/NIM/run\_diffdock\_nim.ipynb).&#x20;
+Check out the [complete notebook](../../examples/notebooks/Diffdock/NIM/run\_diffdock\_nim.ipynb).
 
 ## Notes
+
+### Overriding the default startup command
+
+When you run&#x20;
+
+```python
+docker run --rm -it --name diffdock-nim \
+  --gpus all \
+  -e NGC_API_KEY=$NGC_API_KEY \
+  -v "$LOCAL_NIM_CACHE:/home/nvs/.cache/nim" \
+  -p 8000:8000 \
+  nvcr.io/nim/mit/diffdock:1.2.0
+```
+
+the container will start with the default command `start_server`. Therefore, an equivalent way to launch the container is:&#x20;
+
+```python
+docker run --rm -it --name diffdock-nim \
+  --gpus all \
+  -e NGC_API_KEY=$NGC_API_KEY \
+  -v "$LOCAL_NIM_CACHE:/home/nvs/.cache/nim" \
+  -p 8000:8000 \
+  nvcr.io/nim/mit/diffdock:1.2.0 /bin/bash
+```
+
+Then when you're ready to start the triton server, just run `start_server` inside the container.&#x20;
+
+### File priviledge issues
+
+For non-root users, you might encounter privilege issues when trying to change files inside the container. This is a security feature of NIM by design. In general files under `/home/triton`, and `/home/envs` do not require elevated privileges to modify. Alternatively, you can mount volumes to the containers to persist results.&#x20;
+
+### Pip install issue
+
+If you want to install packages inside the container, you might run into an "connection" issue. This is because the `PIP_INDEX_URL` variable is by default pointing to an NVIDIA's internal URL. To enable pip installs, run&#x20;
+
+```bash
+echo "unset PIP_INDEX_URL" >> ~/.bash_profile \
+&& source ~/.bash_profile
+```
 
