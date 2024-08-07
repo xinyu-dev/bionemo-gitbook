@@ -1,13 +1,13 @@
 # Running BioNeMo Framework as Singularity Container
 
-
 ## Prerequisites
 
 You will need a ubuntu environment with Singularity, docker, ngc cli, cuda driver, and cuda container toolkit installed. An example Environment I used is shown below. 
 
 ### 1. Set up EC2
+
 1. Follow the setup guide to launch a EC2 instance with an instance. Specifically: 
-    - Use **NVIDIA GPU Optimized** AMI which has the CUDA driver,  toolkits and NGC CLI installed.
+    - Use **NVIDIA GPU Optimized** AMI which has the CUDA driver, toolkits and NGC CLI installed.
     - Use **g5.16xlarge** instance type (or p3 instance)
     - Optionally, in **security group**, in addition to `SSH`, enable `NFS` port (2049) so that we can mount EFS volume (Skip this step if you're prefer to use the default EC2 EBS volume instead)
     - Use a minimum of 200 GB root volume (container is > 30 GB)
@@ -76,8 +76,8 @@ You will need a ubuntu environment with Singularity, docker, ngc cli, cuda drive
     You should see the version number. Proceed to next section
 
 ## Steps
-### Step 1. Pull BioNeMo docker container
 
+### Step 1. Pull BioNeMo docker container
 
 {% hint style="info" %}
 Instead of converting local docker image to singularity, it is also possible to directly pull `singularity pull docker://nvcr.io/nvidia/clara/bionemo-framework:<tag>` . However sometimes I encountered issues with the latter approach, so I download a local version of docker image first. 
@@ -100,15 +100,11 @@ Instead of converting local docker image to singularity, it is also possible to 
 	INFO:    Build complete: bionemo-framework.sif
 	```
 
-
-
 ### Optional Step 2: Mount EFS volumne
 
 {% hint style="info" %}
 This step is optional but recommended. The container, model weights, and datasets can all take significant amount of space. You can cache the model weights and datasets into a EFS volume and mount it to singularity container.
 {% endhint %}
- 
-
 
 1. In the EC2 terminal, create a folder as mounting point. For example `xyu-workspace1`. 
 	```bash
@@ -177,6 +173,7 @@ This step is optional but recommended. The container, model weights, and dataset
 3. This opens up a jupyter lab 
 
 ### Step 5. Download model weights
+
 1. To download the pretrained model weights, open a terminal in JupyterLab. 
 2. In the terminal, run the `ngc config set` again to set the NGC credentials inside the container. You might need to [install NGC CLI first](https://org.ngc.nvidia.com/setup/installers/cli), before running the command. 
 3. Then run
@@ -191,6 +188,7 @@ This will create download the models to `/workspace/bionemo/models` folder.
 	```
 
 ### Optional: Run singularity container (with mounted model weights)
+
 If model weights have already been downloaded to the EFS volume, you can mount the model weights to the container and run the container. 
 
 ```bash
@@ -203,9 +201,3 @@ bionemo-framework.sif \
 "jupyter lab --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='' --NotebookApp.allow_origin='*' --ContentsManager.allow_hidden=True --notebook-dir=/workspace/bionemo"
 ```
 
-
-
-
-```
-singularity build grover.sif docker-daemon:nvcr.io/ghsemt2ean4b/mol-prop-pred/grover:07102024
-```
