@@ -228,7 +228,9 @@ assert response.text == "true", "Health check failed"
 ```
 ````
 
-## Step 6. Usage case 1: single GPU, small dataset
+Continue to the **Usage case section below.**&#x20;
+
+## Usage case 1: single GPU, small dataset
 
 {% hint style="info" %}
 This section is for running NIMs on single GPU in instance. It will also work if you have multiple-GPU instance, but because we are not using `asyncio`, you will be utilizing only GPU:0 instead of all the GPUs. Refer to the the next section for running on multiple GPUs
@@ -249,7 +251,7 @@ Specifically:
 * `input_smiles.txt`: a txt file with SMILES strings, one per line.
 * `receptor.pdb`: a PDB file of the target
 
-**Example files**: See `batch_input_small` folder. These are taken from [DUD-E](https://dude.docking.org/). The example has 3 compounds for aa2ar
+**Example files**: See [batch\_input\_small](https://github.com/xinyu-dev/bionemo-gitbook/tree/main/examples/data/diffdock\_nim\_input/batch\_input\_small) folder. These are taken from [DUD-E](https://dude.docking.org/). The example has 3 compounds for aa2ar
 
 ### Run prediction
 
@@ -497,7 +499,7 @@ response['protein']
 response['ligand']
 ```
 
-
+Check out the [complete notebook](../../examples/notebooks/Diffdock/NIM/run\_diffdock\_nim.ipynb).&#x20;
 
 ## Usage case 2: multi GPU, large dataset
 
@@ -509,8 +511,6 @@ Here is one way to do this:
 2. Use `asyncio` to simulataneoulsy sumbit these batches to the server.
 3. Triton server will parallelize the requests to the GPUs and return the results of each GPU.
 4. We will process the results of each GPU and combine them into a single SDF file.
-
-
 
 ### Input file structure
 
@@ -547,7 +547,7 @@ Specifically:
 * `batches`: a folder that contains multiple batches of SMILES files. Each batch is a folder that contains a `status.csv` file. The number of batches is the same as number of GPUs.
 * `status.csv`: a CSV file that contains the status of each compound in the batch. See the next section for more details.
 
-**Example files**: See `batch_input_large` folder.
+**Example files**: See [batch\_input\_large](https://github.com/xinyu-dev/bionemo-gitbook/tree/main/examples/data/diffdock\_nim\_input/batch\_input\_large) folder.
 
 ### Prepare status.csv
 
@@ -575,7 +575,7 @@ molecule_id,category,smiles,status,fail
    * Because of these factors, it is recommended that you try out different batch size to make sure the prediction doesn't time out and the GPU is fully utilized.
    * Because we are iterating by target, a smaller batch might finish earlier, then its GPU becomes idle and will need to wait for the larger batch to finish. Therefore, keeping the batches of the same target roughly the same size helps to uitilize the GPU more efficiently.
 
-**Example files**: See `batch_input_large` folder. These are taken from [DUD-E](https://dude.docking.org/). The example has 80 compounds for aa2ar, and 40 compounds for abl1.
+**Example files**: See [batch\_input\_large](https://github.com/xinyu-dev/bionemo-gitbook/tree/main/examples/data/diffdock\_nim\_input/batch\_input\_large) folder. These are taken from [DUD-E](https://dude.docking.org/). The example has 80 compounds for aa2ar, and 40 compounds for abl1.
 
 ### Run prediction
 
@@ -583,6 +583,23 @@ First install additional packages:
 
 ```bash
 pip install aiofiles aiohttp loguru rdkit
+```
+
+Download the Python script [run\_diffdock\_asyncio.py](../../examples/notebooks/Diffdock/NIM/run\_diffdock\_asyncio.py).
+
+Open the script. Update the variables such as input directories, number of poses, etc under the `if __name__ == "__main__":` section:
+
+```python
+if __name__ == "__main__":
+    # update these variables
+    input_base_dir = 'data/batch_input_large'
+    output_base_dir = 'output/batch_output_large'
+    num_poses = 5 # number of poses to generate
+    time_divisions= 20 # number of time divisions
+    steps = 18 # number of diffusion steps
+    max_retry = 2 # max number of retries
+    base_url = "http://localhost:8000" # server ur
+    ...
 ```
 
 Then run the prediction with
@@ -645,14 +662,7 @@ Specifically:
 
 Below is the runtime using Diffodck version `nvcr.io/nim/mit/diffdock:1.2.0`
 
-| instance                 | number of poses | dataset       | total run time (sec) | per ligand runtime (sec) |
-| ------------------------ | --------------- | ------------- | -------------------- | ------------------------ |
-| AWS g5.48xlarge (8xA10)  | 5               | aa2ar example | 19.3                 | 0.24                     |
-| AWS g5.48xlarge (8xA10)  | 5               | abl1 example  | 10.9                 | 0.27                     |
-| AWS p3.16xlarge (8xV100) | 5               | aa2ar example | 24.1                 | 0.30                     |
-| AWS p3.16xlarge (8xV100) | 5               | abl1 example  | 14.3                 | 0.36                     |
-| DGXC 8xA100              | 5               | aa2ar example | 18.4                 | 0.23                     |
-| DGXC 8xA100              | 5               | abl1 example  | 10.5                 | 0.26                     |
+<table data-full-width="true"><thead><tr><th>instance</th><th>number of poses</th><th>dataset</th><th>total run time (sec)</th><th>per ligand runtime (sec)</th></tr></thead><tbody><tr><td>AWS g5.48xlarge (8xA10)</td><td>5</td><td>aa2ar example</td><td>19.3</td><td>0.24</td></tr><tr><td>AWS g5.48xlarge (8xA10)</td><td>5</td><td>abl1 example</td><td>10.9</td><td>0.27</td></tr><tr><td>AWS p3.16xlarge (8xV100)</td><td>5</td><td>aa2ar example</td><td>24.1</td><td>0.30</td></tr><tr><td>AWS p3.16xlarge (8xV100)</td><td>5</td><td>abl1 example</td><td>14.3</td><td>0.36</td></tr><tr><td>DGXC 8xA100</td><td>5</td><td>aa2ar example</td><td>18.4</td><td>0.23</td></tr><tr><td>DGXC 8xA100</td><td>5</td><td>abl1 example</td><td>10.5</td><td>0.26</td></tr></tbody></table>
 
 Notes:
 
@@ -660,4 +670,7 @@ Notes:
 * abl1 example: 40 compounds, split into 8 batches of 5 compounds/batch
 * `per ligand runtime = total runtime/number of ligands`.
 
+Check out the [complete notebook](../../examples/notebooks/Diffdock/NIM/run\_diffdock\_nim.ipynb).&#x20;
+
 ## Notes
+
