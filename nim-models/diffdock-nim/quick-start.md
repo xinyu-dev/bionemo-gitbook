@@ -661,7 +661,12 @@ Specifically:
 
 Below is the runtime using Diffodck version `nvcr.io/nim/mit/diffdock:1.2.0`
 
-<table data-full-width="true"><thead><tr><th>instance</th><th>number of poses</th><th>dataset</th><th>total run time (sec)</th><th>per ligand runtime (sec)</th></tr></thead><tbody><tr><td>AWS g5.48xlarge (8xA10)</td><td>5</td><td>aa2ar example</td><td>19.3</td><td>0.24</td></tr><tr><td>AWS g5.48xlarge (8xA10)</td><td>5</td><td>abl1 example</td><td>10.9</td><td>0.27</td></tr><tr><td>AWS p3.16xlarge (8xV100)</td><td>5</td><td>aa2ar example</td><td>24.1</td><td>0.30</td></tr><tr><td>AWS p3.16xlarge (8xV100)</td><td>5</td><td>abl1 example</td><td>14.3</td><td>0.36</td></tr><tr><td>DGXC 8xA100</td><td>5</td><td>aa2ar example</td><td>18.4</td><td>0.23</td></tr><tr><td>DGXC 8xA100</td><td>5</td><td>abl1 example</td><td>10.5</td><td>0.26</td></tr></tbody></table>
+| instance                 | number of poses | dataset       | total run time (sec) | per ligand runtime (sec) |
+| ------------------------ | --------------- | ------------- | -------------------- | ------------------------ |
+| AWS p3.16xlarge (8xV100) | 5               | aa2ar example | 24.1                 | 0.30                     |
+| AWS p3.16xlarge (8xV100) | 5               | abl1 example  | 14.3                 | 0.36                     |
+| DGXC 8xA100              | 5               | aa2ar example | 18.4                 | 0.23                     |
+| DGXC 8xA100              | 5               | abl1 example  | 10.5                 | 0.26                     |
 
 Notes:
 
