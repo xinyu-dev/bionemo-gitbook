@@ -30,8 +30,8 @@ This section is applicable if 1) this is your first time running Diffdock NIM, a
 2.  I also recommend adding this to bash profile, so that next time you do not have to set it again
 
     ```bash
-    echo "export LOCAL_NIM_CACHE=~/nim" >> ~/.bash_profile \
-    && source ~/.bash_profile
+    echo "export LOCAL_NIM_CACHE=~/nim" >> ~/.bashrc \
+    && source ~/.bashrc
     ```
 3.  Then run
 
@@ -700,8 +700,8 @@ echo $NGC_API_KEY
 If returns nothing, set it by
 
 ```bash
-echo "export NGC_API_KEY=YOUR_API_KEY" >> ~/.bash_profile \
-&& source ~/.bash_profile
+echo "export NGC_API_KEY=YOUR_API_KEY" >> ~/.bashrc \
+&& source ~/.bashrc
 ```
 
 **Did you set ngc**?&#x20;
