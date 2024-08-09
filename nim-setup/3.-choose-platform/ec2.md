@@ -96,8 +96,8 @@
     If returns nothing, set it by
 
     ```shell
-    echo "export NGC_API_KEY=YOUR_API_KEY" >> ~/.bash_profile \
-    && source ~/.bash_profile
+    echo "export NGC_API_KEY=YOUR_API_KEY" >> ~/.bashrc \
+    && source ~/.bashrc
     ```
 6. Continue with the **NIM Models** section for the quick start guide on specific models.&#x20;
 
