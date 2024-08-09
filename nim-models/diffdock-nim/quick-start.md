@@ -47,6 +47,7 @@ This section is applicable if 1) this is your first time running Diffdock NIM, a
     * To use only 1 GPU, replace `--gpus all` with `-e CUDA_VISIBLE_DEVICES=0`
     * this command mounts the cache folder that contains model weights to the container.
     * When the command is invoked, it looks for the `$LOCAL_NIM_CACHE` folder to see if model weights and triton configs are already there. If not, it will download those files.
+    * If encountering "unauthorized" error, check out the&#x20;
 4.  Wait until it says something like this
 
     ```
@@ -681,6 +682,39 @@ Notes:
 Check out the [complete notebook](../../examples/notebooks/Diffdock/NIM/run\_diffdock\_nim.ipynb).
 
 ## Notes
+
+### Unauthorized error when launching container
+
+To help troubleshoot, run a few things:&#x20;
+
+**Did you change your NGC API Key?**&#x20;
+
+NGC API key is per-user, not per-org. To reset NGC API key, follow [2.-configure-ngc-api-key.md](../../nim-setup/2.-configure-ngc-api-key.md "mention")&#x20;
+
+**Did you set NGC\_API\_KEY?**&#x20;
+
+```bash
+echo $NGC_API_KEY
+```
+
+If returns nothing, set it by
+
+```bash
+echo "export NGC_API_KEY=YOUR_API_KEY" >> ~/.bash_profile \
+&& source ~/.bash_profile
+```
+
+**Did you set ngc**?&#x20;
+
+```bash
+ngc config set
+```
+
+**Did you log in to docker registry**?&#x20;
+
+```bash
+docker login nvcr.io
+```
 
 ### Overriding the default startup command
 
