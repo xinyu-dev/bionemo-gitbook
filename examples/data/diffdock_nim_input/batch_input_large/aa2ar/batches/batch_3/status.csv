@@ -1,11 +1,3 @@
-molecule_id,category,smiles,status,fail
-30,active,Cc4nc(c2sc(NC(=O)Cc1ccccc1)nc2c3ccccc3)no4,pending,0
-31,active,COc4ccc(CC(=O)Nc3cc(c1nccs1)nc(c2ccc(C)o2)n3)cc4,pending,0
-32,active,Cc3sc2nc(c1ccccc1)n(CC#C)c(=O)c2c3C,pending,0
-33,active,CCNC(=O)[C@H]4OC(n2cnc3c(N)nc(NCCc1ccc(CCC(O)=O)cc1)nc23)[C@H](O)[C@@H]4O,pending,0
-34,active,COc7cc6CCN(CCn1ncc3c1nc(N)n4nc(c2ccco2)nc34)C(Cc5ccccc5)c6cc7OC,pending,0
-35,active,CCCn4c(=O)n(CCC)c3cc(c2ccc(COC(=O)Nc1cc[nH]n1)cc2)[nH]c3c4=O,pending,0
-36,active,Nc5nc(c1ccccc1)c4c(=O)c3ccc(NCCN2CCS(=O)(=O)CC2)cc3c4n5,pending,0
-37,active,CN4CCC(Oc3cccc(c2cc(NC(C)=O)nc(n1nc(C)cc1C)n2)c3)CC4,pending,0
-38,active,Nc4nc2n(c1ccccc1)ncc2c5nc(c3ccco3)nn45,pending,0
-39,active,Clc6ccc(OCC(=O)Nc4nc2nn(CCCc1ccccc1)cc2c5nc(c3ccco3)nn45)cc6,pending,0
+version https://git-lfs.github.com/spec/v1
+oid sha256:3a71054c7167778aa86f9151ff35d74b5ab0a331ca3490ef18937183977cd225
+size 785
