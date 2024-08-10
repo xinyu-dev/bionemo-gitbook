@@ -1,11 +1,3 @@
-molecule_id,category,smiles,status,fail
-70,decoy,CCCNC(=O)C[NH+]1CCN(CC1)c2ccc(cc2[N+](=O)[O-])S(=O)(=O)N3CCC[C@H](C3)C,pending,0
-71,decoy,c1ccc(c(c1)C(=O)C[C@@]2(c3ccccc3N(C2=O)C[NH+]4CCOCC4)O)[N+](=O)[O-],pending,0
-72,decoy,CC1(Oc2ccc(cc2O1)NC(=O)c3c(c(n[nH]3)C4CC4)Br)C,pending,0
-73,decoy,Cn1c2c(cc(cc2nc1[C@@H]3CCCO3)NC(=O)CC4CCCC4)C(=O)N5CCC(CC5)C(=O)OC,pending,0
-74,decoy,Cc1ccc(cc1NC(=O)N(C)[C@H]2CCc3c2cccc3)[N+](=O)[O-],pending,0
-75,decoy,COc1ccc(cc1S(=O)(=O)N2CCCCC2)/C=C/C(=O)N3C[C@H](Oc4c3cccc4)C(=O)[O-],pending,0
-76,decoy,Cc1ccn2cc([nH+]c2c1)CNC(=O)[C@@H]3CN(CC34CC[NH2+]CC4)C(=O)c5c(noc5c6cc(on6)C)C,pending,0
-77,decoy,CC(C)(C)OC(=O)NN1CC(=O)N2[C@@H](C1=O)CC3=c4ccccc4=[NH+][C@@H]3[C@@H]2c5cccc(c5)[N+](=O)[O-],pending,0
-78,decoy,CC(C)[C@H](c1cccs1)Nc2ccc(cc2)[N+](=O)[O-],pending,0
-79,decoy,Cc1ccccc1C(=O)NNC(=O)N2CCC[C@@H]2c3cccc4c3OCCO4,pending,0
+version https://git-lfs.github.com/spec/v1
+oid sha256:a10c6ce775eb3ecee06e332057275b170b76aab37b410ee37a654180a889ac68
+size 874

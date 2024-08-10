@@ -1,6 +1,3 @@
-molecule_id,category,smiles,status,fail
-10,active,CCCCCC(=O)Nc3cccc(Nc2nccc(c1cccnc1)n2)c3,pending,0
-11,active,Nc2nc(Nc1ccc(S(N)(=O)=O)cc1)nn2C(=O)c3c(F)cccc3F,pending,0
-12,active,COc1ccccc1Oc7ccc6[nH]nc(c5nc4cc(N3CCC(N2CCCCC2)CC3)ccc4[nH]5)c6c7,pending,0
-13,active,COc3cc2ncnc(Nc1cccc(Br)c1)c2cc3OC,pending,0
-14,active,Nc3nc(SCC(=O)c1ccccc1)c(C#N)c(c2ccsc2)c3C#N,pending,0
+version https://git-lfs.github.com/spec/v1
+oid sha256:a46d21c330165c679067fdb7a33fc7adb61d673e468377fe15796c3a81ee9f87
+size 378
