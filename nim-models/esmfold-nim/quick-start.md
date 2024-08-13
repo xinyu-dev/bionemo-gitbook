@@ -71,7 +71,7 @@ This guide assumes you're hosting NIM on your own infrastructure. See [Get acces
     -v ~/esmfold-nim/weights/:/esm_models \
     -e MODEL_PATH=/config/models \
     -p 8008:8008 \
-    nvcr.io/nvidia/nim/bionemo_esmfold_nim:24.03
+    nvcr.io/nvidia/nim/bionemo_esmfold_nim:24.03.01
     ```
 9.  Wait until it shows up like this
 
