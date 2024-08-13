@@ -25,7 +25,7 @@ This guide assumes you're hosting NIM on your own infrastructure. See [Get acces
 3.  Run
 
     ```bash
-    docker pull nvcr.io/nvidia/nim/bionemo_esmfold_nim:24.03
+    docker pull nvcr.io/nvidia/nim/bionemo_esmfold_nim:24.03.01
     ```
 4.  Download model
 
