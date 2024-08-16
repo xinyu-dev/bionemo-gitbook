@@ -58,7 +58,15 @@ This section is applicable if 1) this is your first time running Diffdock NIM, a
 ### Change triton config
 
 {% hint style="info" %}
-This section is applicable if you are running on a multi-GPU instance. Make sure you cached local weights and triton configs prior to starting this part
+This section is applicable if:
+
+1. you are running on a multi-GPU instance, **AND**
+2. you want fine-grained control over the GPUs. If applicable, make sure you have cached local weights and triton configs prior to starting this part.
+
+This section is **NOT** applicable if:
+
+1. you're running on a single-GPU instance, **OR**
+2. you're running on a multi-GPU instance but you plan to use all GPUs available If not applicable, skip this section and proceed to next. When you launch the docker container, simply use `--gpus all` and triton will handle the scaling automatically.
 {% endhint %}
 
 We will need to manually update the triton config so that it correctly recognizes the number of GPUs on your instance. To do this, we will need to update `config.pbtxt` stored in the `$LOCAL_NIM_CACHE/models/bionemo-diffdock_v1.2.0/diffdock` folder to match the exact number of GPUs on your instance. First, run:
@@ -160,6 +168,8 @@ This should match the GPU devices you specified. Similarly, if you have a 4-GPU 
       -p 8000:8000 \
       nvcr.io/nim/mit/diffdock:1.2.0
     ```
+
+    Remove the `--gpus all` tag if you have modified triton config.&#x20;
 4.  Wait until it says something like this
 
     ```
