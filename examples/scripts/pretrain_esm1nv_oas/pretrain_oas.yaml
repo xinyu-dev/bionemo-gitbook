@@ -22,10 +22,10 @@ model:
   data:
     dataset_path: /workspace/bionemo/data/OASpaired/processed/heavy # parent directory for data, contains train / val / test folders. Needs to be writeable for index creation.
     dataset: # inclusive range of data files to load x[000..049] or can a single file, e.g. x000
-      train: x[000..005] # change to number of files in train folder. Using 005 for demo purpose only
+      train: x[000..016] # change to number of files in train folder. Using 005 for demo purpose only
       test: x[000..001]
       val: x[000..001]
-    micro_batch_size: ${model.micro_batch_size}
+    micro_batch_size: 8
     num_workers: 10
     # Supported kwargs (with default values):
     #     text_mmap (newline_int=10, header_lines=0, workers=None, sort_dataset_paths=True)
@@ -33,7 +33,10 @@ model:
     data_impl_kwargs:
       csv_mmap:
         data_col: 1 # 0-based. Index for the column in the x000.csv file that has the protein sequence
-    modify_percent: 0.1 # Percentage of characters in a protein sequence to modify. (Modification means replacing with another amino acid or with a mask token)
-    perturb_percent: 0.5 # Of the modify_percent, what percentage of characters are to be replaced with another amino acid.
+    modify_percent: 0.15 # Fraction of characters in a protein sequence to modify. (Modification means replacing with another amino acid or with a mask token)
+    # NOTE: if you want to replicate runs prior to 5/2024, set perturb_percent to 0.5, mask_percent to 0.5, and identity_percent to 0.0
+    perturb_percent: 0.1 # Of the modify_percent, what fraction of characters are to be replaced with another amino acid.
+    mask_percent: 0.8 # Of the modify_percent, what fraction of characters are to be replaced with a mask token.
+    identity_percent: 0.1 # Of the modify_percent, what fraction of characters are to be unchanged as the original amino acid.
   dwnstr_task_validation:
     enabled: False # set to False
