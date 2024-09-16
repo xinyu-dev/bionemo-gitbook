@@ -7,6 +7,7 @@
 * [1. Configure NGC API Key](framework-setup/configure-ngc-api-key.md)
 * [2. Choose platform](framework-setup/platform/README.md)
   * [EC2](framework-setup/platform/ec2.md)
+  * [SageMaker Studio](framework-setup/platform/sagemaker-studio.md)
   * [NGC](framework-setup/platform/ngc.md)
 
 ## Framework Models
