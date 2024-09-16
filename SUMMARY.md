@@ -47,3 +47,5 @@
   * [Quick Start](nim-models/diffdock-nim/quick-start.md)
 * [ESMFold NIM](nim-models/esmfold-nim/README.md)
   * [Quick Start](nim-models/esmfold-nim/quick-start.md)
+* [Virtual Screening Blueprint](nim-models/virtual-screening-blueprint/README.md)
+  * [Quick Start](nim-models/virtual-screening-blueprint/quick-start.md)

@@ -13,7 +13,16 @@
 ## Steps for launching NIM on SageMaker Studio JupyterLab
 
 {% hint style="info" %}
-This method allows you to run BioNeMo NIMs on SageMaker JupyterLab as a local host or a remote host. It utilizes a similar method as described in [AWS blog on jupyterlab proxy](https://aws.amazon.com/blogs/machine-learning/accelerate-ml-workflows-with-amazon-sagemaker-studio-local-mode-and-docker-support/). The advantage of this method is that 1) relatively simple 2) does not require converting BioNeMo functions to SageMaker functions. 3) can run on single-GPU or multi-GPU as long as it is a single node. The disadvantage is that it does not support multi-node inference. For multi-node inference, refer to the [NIM+shim guide](https://github.com/NVIDIA/nim-deploy/blob/main/cloud-service-providers/aws/sagemaker/README\_shell.md)
+This method allows you to run BioNeMo NIMs on SageMaker JupyterLab as a local host or a remote host. It utilizes a similar method as described in [AWS blog on jupyterlab proxy](https://aws.amazon.com/blogs/machine-learning/accelerate-ml-workflows-with-amazon-sagemaker-studio-local-mode-and-docker-support/). \
+\
+**Advantages**: \
+1\) relatively simple \
+2\) does not require converting BioNeMo functions to SageMaker functions. \
+3\) can run on single-GPU or multi-GPU as long as it is a single node. \
+\
+**Disadvantages**: \
+1\)  it does not support multi-node inference. For multi-node inference, refer to the [NIM+shim guide](https://github.com/NVIDIA/nim-deploy/blob/main/cloud-service-providers/aws/sagemaker/README\_shell.md)\
+2\) SageMaker Studio JupyterLab does not currently support docker compose. There are 2 possible workarounds here. **Workaround** 1: you can use the[ SageMaker Notebook Instance](../../nim-models/virtual-screening-blueprint/quick-start.md) so you can run `docker compose`` `**`Workaround 2:`** you can manually launch multiple NIMs to using this guide by binding them to different port on the same instance, or binding them to different JupyterLab apps.&#x20;
 {% endhint %}
 
 ### Domain
