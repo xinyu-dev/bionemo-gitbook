@@ -366,3 +366,6 @@ result = submit_query(
 )
 ```
 
+{% hint style="info" %}
+Complete notebook see [here](../../examples/notebooks/Diffdock/NIM/run\_diffdock\_nim\_sagemaker.ipynb)
+{% endhint %}
