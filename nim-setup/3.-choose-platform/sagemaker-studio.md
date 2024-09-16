@@ -22,7 +22,7 @@ This method allows you to run BioNeMo NIMs on SageMaker JupyterLab as a local ho
 \
 **Disadvantages**: \
 1\)  it does not support multi-node inference. For multi-node inference, refer to the [NIM+shim guide](https://github.com/NVIDIA/nim-deploy/blob/main/cloud-service-providers/aws/sagemaker/README\_shell.md)\
-2\) SageMaker Studio JupyterLab does not currently support docker compose. There are 2 possible workarounds here. **Workaround** 1: you can use the[ SageMaker Notebook Instance](../../nim-models/virtual-screening-blueprint/quick-start.md) so you can run `docker compose`` `**`Workaround 2:`** you can manually launch multiple NIMs to using this guide by binding them to different port on the same instance, or binding them to different JupyterLab apps.&#x20;
+2\) SageMaker Studio JupyterLab does not currently support docker compose. There are 2 possible workarounds here. **Workaround** 1: you can use the[ SageMaker Notebook Instance](../../nim-models/virtual-screening-blueprint/quick-start.md) so you can run `docker compose.` **Work around 2**: can manually launch multiple NIMs to using this guide by binding them to different port on the same instance, or binding them to different JupyterLab apps.&#x20;
 {% endhint %}
 
 ### Domain
@@ -73,7 +73,6 @@ sudo echo \
 
 sudo apt-get -y update
 
-
 # pick the latest patch from:
 # apt-cache madison docker-ce | awk '{ print $3 }' | grep -i 20.10
 # this will result something like 5:20.10.24~3-0~ubuntu-jammy
@@ -87,7 +86,6 @@ sudo apt-get install docker-ce-cli=$VERSION_STRING docker-compose-plugin -y
 if [ -z "${DOCKER_HOST}" ]; then
   export DOCKER_HOST="unix:///docker/proxy.sock"
 fi
-
 ```
 
 Once you save the life cycle config to SageMaker, go to the **Domains -> Environment** tab, and **attach** the life cycle config to your Studio Domain:&#x20;
