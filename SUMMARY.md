@@ -39,6 +39,7 @@
 * [2. Configure NGC API Key](nim-setup/2.-configure-ngc-api-key.md)
 * [3. Choose platform](nim-setup/3.-choose-platform/README.md)
   * [EC2](nim-setup/3.-choose-platform/ec2.md)
+  * [SageMaker Studio](nim-setup/3.-choose-platform/sagemaker-studio.md)
 
 ## NIM Models
 
