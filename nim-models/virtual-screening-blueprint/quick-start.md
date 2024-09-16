@@ -240,7 +240,7 @@ There is a bug with current workflow that AlphaFold weights are not correctly do
 
 ### Run notebook
 
-1. Head over to the `generative-virtual-screening/src/generative-virtual-screening.ipynb`
+Head over to the [generative-virtual-screening.ipynb](https://github.com/xinyu-dev/generative-virtual-screening/blob/main/src/generative-virtual-screening.ipynb) (this is a slightly modified version of the [original notebook](https://github.com/NVIDIA-NIM-Agent-Blueprints/generative-virtual-screening/blob/main/src/generative-virtual-screening.ipynb))
 
 ## Troubleshooting
 
