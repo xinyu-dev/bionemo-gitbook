@@ -25,7 +25,9 @@ This section is applicable if 1) this is your first time running Diffdock NIM, a
 1.  cache the model weights and triton configs in local volume, so that you don't have to re-download the model every time you launch the NIM container. Assuming that we will create this cache folder at `~/nim` , run:
 
     ```bash
-    export LOCAL_NIM_CACHE=~/nim && mkdir -p "$LOCAL_NIM_CACHE" && chmod 777 $LOCAL_NIM_CACHE
+    export LOCAL_NIM_CACHE=~/nim && \
+    mkdir -p "$LOCAL_NIM_CACHE" && \
+    chmod 777 $LOCAL_NIM_CACHE
     ```
 2.  I also recommend adding this to bash profile, so that next time you do not have to set it again
 
@@ -54,93 +56,6 @@ This section is applicable if 1) this is your first time running Diffdock NIM, a
     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
     ```
 5. Press CTRL+C to quit the running container. You should see model weights and triton config in your local `$LOCAL_NIM_CACHE` folder.
-
-### Change triton config
-
-{% hint style="info" %}
-This section is applicable if:
-
-1. you are running on a multi-GPU instance, **AND**
-2. you want fine-grained control over the GPUs. If applicable, make sure you have cached local weights and triton configs prior to starting this part.
-
-This section is **NOT** applicable if:
-
-1. you're running on a single-GPU instance, **OR**
-2. you're running on a multi-GPU instance but you plan to use all GPUs available If not applicable, skip this section and proceed to next. When you launch the docker container, simply use `--gpus all` and triton will handle the scaling automatically.
-{% endhint %}
-
-We will need to manually update the triton config so that it correctly recognizes the number of GPUs on your instance. To do this, we will need to update `config.pbtxt` stored in the `$LOCAL_NIM_CACHE/models/bionemo-diffdock_v1.2.0/diffdock` folder to match the exact number of GPUs on your instance. First, run:
-
-```bash
-cd $LOCAL_NIM_CACHE/models/bionemo-diffdock_v1.2.0/diffdock
-```
-
-Make sure you change the diffdock version `1.2.0` to the version that matches your container. Then, run:
-
-```bash
-nvidia-smi
-```
-
-This will display the number of GPUs. For example, I have a 8-GPU instance, so I will run:
-
-```bash
-chmod +x configure_instances.sh && ./configure_instances.sh 0 1 2 3 4 5 6 7
-```
-
-It will show a warning that there is already a file there. Ignore it. Once this commands is executed, you can run ,
-
-```
-nano config.pbtxt
-```
-
-you should be able to find a block of text that looks like this:
-
-```bash
-	instance_group [
-  {
-	count: 1
-	kind: KIND_GPU
-	gpus: [0]
-  },
-  {
-	count: 1
-	kind: KIND_GPU
-	gpus: [1]
-  },
-  {
-	count: 1
-	kind: KIND_GPU
-	gpus: [2]
-  },
-  {
-	count: 1
-	kind: KIND_GPU
-	gpus: [3]
-  },
-  {
-	count: 1
-	kind: KIND_GPU
-	gpus: [4]
-  },
-  {
-	count: 1
-	kind: KIND_GPU
-	gpus: [5]
-  },
-  {
-	count: 1
-	kind: KIND_GPU
-	gpus: [6]
-  },
-  {
-	count: 1
-	kind: KIND_GPU
-	gpus: [7]
-  }
-]
-```
-
-This should match the GPU devices you specified. Similarly, if you have a 4-GPU instance, you can just do `./configure_instances.sh 0 1 2 3`. Because this modified file is cached on local volume, in the future, we can simply do `docker run` command without having to worry about the config file.\\
 
 ## Step 3. Launch container
 
