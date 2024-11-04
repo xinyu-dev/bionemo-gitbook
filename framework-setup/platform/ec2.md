@@ -111,18 +111,13 @@
     NGC_CLI_ORG=<YOUR_ORG>
     NGC_CLI_TEAM=<YOUR_TEAM>
     ```
-7. Then we need to download the model checkpoints.  You can either 1) download all model checkpoints in BioNeMo, or 2) download selected models.&#x20;
+7. Then we need to download the model checkpoints.
    * **Tip 1:** To see a list of available models, navigate to `/workspace/bionemo/artifact_paths.yaml` file.&#x20;
    * &#x20;**Tip 2**: For convenience, we will download the model checkpoints to `/workspace/bionemo/models` folder.&#x20;
-   *   **Method 1: Download all models in BioNeMo Framework**
+   *   **Download all models in BioNeMo Framework**
 
        ```shell
        cd /workspace/bionemo && ./launch.sh download
-       ```
-   *   **Method 2: Download the model you specify (for example, ESM2nv-650M)**
-
-       ```shell
-       cd /workspace/bionemo && ./launch.sh download --models esm2nv_650m
        ```
 8.  Optionally, persist the models by copying them to your workspace
 
