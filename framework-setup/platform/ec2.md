@@ -114,10 +114,19 @@
 7. Then we need to download the model checkpoints.
    * **Tip 1:** To see a list of available models, navigate to `/workspace/bionemo/artifact_paths.yaml` file.&#x20;
    * &#x20;**Tip 2**: For convenience, we will download the model checkpoints to `/workspace/bionemo/models` folder.&#x20;
-   *   **Download all models in BioNeMo Framework**
+   *   **Method 1: Download all models in BioNeMo Framework**
 
        ```shell
        cd /workspace/bionemo && ./launch.sh download
+       ```
+   *   **Method 2: Download specific models in BioNeMo Framework** \
+       Note that the `model_dir` must be named `models` not `model` to avoid overwriting the existing folder.&#x20;
+
+       ```shell
+       python download_artifacts.py \
+       --models esm2nv_650m \
+       --model_dir $BIONEMO_HOME/models \
+       --verbose
        ```
 8.  Optionally, persist the models by copying them to your workspace
 
