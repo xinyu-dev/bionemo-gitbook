@@ -205,7 +205,7 @@ Replace `your_ecr_id` with the number that comes from your ECR account.&#x20;
 
 ### Run BioNeMo
 
-Follow the instructions on [BioNeMo documentations](https://docs.nvidia.com/bionemo-framework/latest/index.html) to get started.
+Follow the instructions on BioNeMo [documentations](https://docs.nvidia.com/bionemo-framework/1.10/) to get started.
 
 ### Delete Images
 
