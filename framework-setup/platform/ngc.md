@@ -54,13 +54,23 @@ A valid ACE is required to run compute on NGC. Please contact NVIDIA team for NG
     NGC_CLI_ORG=<YOUR_ORG>
     NGC_CLI_TEAM=<YOUR_TEAM>
     ```
-6.  To download the pretrained model weights, open a terminal in JupyterLab, and run
+6.  To download all model checkpoints:&#x20;
 
     ```shell
     cd /workspace/bionemo && ./launch.sh download
     ```
 
-    This will download models to `/workspace/bionemo/models` folder. Optionally, persist the models by copying them to your workspace
+    This will download models to `/workspace/bionemo/models` folder. \
+    Alternatively, to download specific models:&#x20;
+
+    ```shell
+    python download_artifacts.py \
+    --models esm2nv_650m \
+    --model_dir $BIONEMO_HOME/models \
+    --verbose
+    ```
+
+    Optionally, persist the models by copying them to your workspace
 
     ```shell
     mkdir -p xyu-workspace1/bionemo && cp -r models xyu-workspace1/bionemo/models
