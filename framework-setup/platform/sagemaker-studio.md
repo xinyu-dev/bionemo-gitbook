@@ -21,12 +21,12 @@ The SageMaker JupyterLab app requires a container image at start up. Therefore w
 #### Create docker file
 
 {% hint style="danger" %}
-At the time of writing there is a limit of 32G for custom image in SageMaker Studio.&#x20;
+At the time of writing there is a limit of 37G for custom image in SageMaker Studio.&#x20;
 {% endhint %}
 
 ````docker
 ```dockerfile
-FROM nvcr.io/nvidia/clara/bionemo-framework:1.7
+FROM nvcr.io/nvidia/clara/bionemo-framework:1.10
 
 ARG NB_USER="sagemaker-user"
 ARG NB_UID=1000
@@ -77,6 +77,8 @@ CMD jupyter lab --ip 0.0.0.0 --port 8888 \
 ```
 ````
 
+Save the above file to `Dockerfile`
+
 Notes:&#x20;
 
 * The creation of `sudo` isn't necessary but does add a few GB to the image. Remove this line if needed.&#x20;
@@ -89,7 +91,7 @@ Notes:&#x20;
 #### Build
 
 ```bash
-docker build -t <your_id>.dkr.ecr.us-east-1.amazonaws.com/bionemo-framework:1.7 .
+docker build -t <your_id>.dkr.ecr.us-east-1.amazonaws.com/bionemo-framework:1.10 .
 ```
 
 Replace `your_ecr_id` with the number that comes from your ECR account.&#x20;
@@ -99,7 +101,7 @@ Replace `your_ecr_id` with the number that comes from your ECR account.&#x20;
 1.  run container interactively,
 
     ```bash
-    docker run -it <your_id>.dkr.ecr.us-east-1.amazonaws.com/bionemo-framework:1.7 /bin/bash
+    docker run -it <your_id>.dkr.ecr.us-east-1.amazonaws.com/bionemo-framework:1.10 /bin/bash
     ```
 2.  check UID and GID. Should be `NB_UID=1000` and `NB_GID=100` as specified in Dockerfile.
 
@@ -111,7 +113,7 @@ Replace `your_ecr_id` with the number that comes from your ECR account.&#x20;
 4.  Run container non-interactively
 
     ```bash
-    docker run -it <your_id>.dkr.ecr.us-east-1.amazonaws.com/bionemo-framework:1.7
+    docker run -it <your_id>.dkr.ecr.us-east-1.amazonaws.com/bionemo-framework:1.10
     ```
 
     Jupyterlab server must correctly run, showing something like this:
@@ -143,17 +145,19 @@ Replace `your_ecr_id` with the number that comes from your ECR account.&#x20;
 3.  Run
 
     ```bash
-    aws --region us-east-1 ecr get-login-password | docker login --username AWS --password-stdin <your_id>.dkr.ecr.us-east-1.amazonaws.com/bionemo-framework
+    aws --region us-east-1 ecr \
+    get-login-password | docker login --username AWS --password-stdin \
+    <your_id>.dkr.ecr.us-east-1.amazonaws.com/bionemo-framework
     ```
 4.  push container to ECR
 
     ```bash
-    docker push <your_id>.dkr.ecr.us-east-1.amazonaws.com/bionemo-framework:1.7
+    docker push <your_id>.dkr.ecr.us-east-1.amazonaws.com/bionemo-framework:1.10
     ```
 5.  Go to ECR, copy the container URI, like this:
 
     ```bash
-    <your_id>.dkr.ecr.us-east-1.amazonaws.com/bionemo-framework:1.7    
+    <your_id>.dkr.ecr.us-east-1.amazonaws.com/bionemo-framework:1.10    
     ```
 
 ### Attach Image to Domain
@@ -184,16 +188,17 @@ Replace `your_ecr_id` with the number that comes from your ECR account.&#x20;
     <figure><img src="https://res.cloudinary.com/dpfqlyh21/image/upload/v1726496611/obsidian/gvqfh1y6jxrlcwdwj65g.png" alt=""><figcaption></figcaption></figure>
 3. Run space
 4. Once space launches, open a terminal in JupyterLab.
-5.  Install NGC by following the [instruction here](https://org.ngc.nvidia.com/setup/installers/cli) for **AMD64 Linux.** Below is an example using the `3.41.3` version.
+5.  Install NGC by following the [instruction here](https://org.ngc.nvidia.com/setup/installers/cli) for **AMD64 Linux.** Below is an example using the `3.55.0` version.
 
     ```bash
-    wget --content-disposition https://api.ngc.nvidia.com/v2/resources/nvidia/ngc-apps/ngc_cli/versions/3.41.3/files/ngccli_linux.zip -O ngccli_linux.zip && unzip -o ngccli_linux.zip && chmod u+x ngc-cli/ngc && echo "export PATH=\"\$PATH:$(pwd)/ngc-cli\"" >> ~/.bashrc && source ~/.bashrc
+    wget --content-disposition https://api.ngc.nvidia.com/v2/resources/nvidia/ngc-apps/ngc_cli/versions/3.55.0/files/ngccli_linux.zip -O ngccli_linux.zip && unzip ngccli_linux.zip
     ```
 6. Run `ngc config set` with your NGC API keys.
 7.  **Without creating a new folder**, create a symbolic link. (Do not repeat this step if you already have a symbolic link)
 
     ```bash
-    # symlink bionemo to /home/sagemaker-user/bionemo. By default /home/sagemaker-user is the home directory
+    # symlink bionemo to /home/sagemaker-user/bionemo. 
+    # By default /home/sagemaker-user is the home directory
     # ln -s [target] [link_name]
     ln -s /workspace/bionemo /home/sagemaker-user/bionemo
     ```
@@ -201,7 +206,7 @@ Replace `your_ecr_id` with the number that comes from your ECR account.&#x20;
     Note:
 
     1. The symbolic link creates a `bionemo` folder in the mandatory, default folder of `/home/sagemaker-user` that mirrors the content of `/workspace/bionemo` folder.
-    2. You should always keep in mind that the folders are "mirrored" when you set up the paths etc.
+    2. Keep in mind that the folders are "mirrored" when you set up the paths etc.
 
 ### Run BioNeMo
 
